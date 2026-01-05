@@ -1,0 +1,151 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+body{
+    margin: 30px;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.page-body{
+    display: flex;
+    height: 100vh;
+    gap: 15px;
+}
+.sidebar{
+    width: 25rem;
+    background-color: rgb(248, 248, 248);
+    padding: 20px 30px;
+    border-radius: 20px;
+}
+.main-page{
+    flex: 1;
+}
+.logo-container{
+    display: flex;
+}
+.logo-name{
+    font-size: 25px;
+}
+.sidebar-lists{
+    margin-top: 70px;
+}
+.sidebar-subtitle{
+    margin-top: 25px;
+    font-weight: bold;
+}
+.sidebar-sublists{
+    margin-top: 20px;
+    line-height: 2;
+    list-style-type: none;
+    font-size: 20px;
+}
+.mp-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(248, 248, 248);
+    padding: 20px 30px;
+    border-radius: 20px;
+}
+.search-input{
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid gray;
+    background-color: white;
+    width: 20rem;
+}
+.mp-header-right{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.mp-icons{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    padding: 6px;
+    border: none;
+    background-color: white;
+}
+.mp-icons img{
+    width: 100%;
+}
+.mp-user-info h3, .mp-user-info p{
+    margin: 0;
+    padding: 0;
+}
+
+/* DASHBOARD PAGE STYLING */
+.dashboard-page{
+    background-color: rgb(248, 248, 248);
+    padding: 20px 30px;
+    border-radius: 20px;
+    margin-top: 20PX;
+}
+.db-plus-tsk{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.db-text h1{
+    font-size: 40px;
+    font-weight: 600;
+}
+.db-text p{
+    font-size: 16px;
+    margin-top: 7px;
+}
+.task-btn{
+    width: 9rem;
+    padding: 13px 17px;
+    border-radius: 50px;
+    font-size: 17px;
+}
+.add-task-btn{
+    background: linear-gradient(170deg, rgb(0, 78, 0), rgb(0, 122, 0));
+    color: white;
+    border: none;
+}
+.import-task-btn{
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(0, 78, 0);
+}
+.projects-divs-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 20px;
+    gap: 20px;
+}
+.project-div{
+    padding: 15px 12px;
+    background-color: white;
+    border-radius: 20px;
+}
+.project-div:first-of-type{
+    background: linear-gradient(170deg, rgb(0, 78, 0), rgb(0, 122, 0));
+    color: white;
+}
+.project-type{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.project-arrow{
+    width: 35px;
+    height: 35px;
+    background-color: rgb(199, 199, 199);
+    border-radius: 50px;
+}
+.project-type h3{
+    font-size: 23px;
+}
+.project-number{
+    margin-top: 10px;
+    margin-bottom: 6px;
+    font-size: 50px;
+    font-weight: 600;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
