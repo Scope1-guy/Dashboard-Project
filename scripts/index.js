@@ -41,3 +41,67 @@ projectsType.forEach((project) => {
 
 const projectsContainer = document.querySelector(".projects-divs-container");
 projectsContainer.innerHTML = projectHTML;
+
+const options = {
+chart: {
+    type: 'bar',
+    height: 200,
+    toolbar: { show: false }
+},
+series: [{
+    data: [30, 50, 40, 70, 60, 45, 35]
+}],
+plotOptions: {
+    bar: {
+    columnWidth: '60%',
+    borderRadius: 10,
+    distributed: true
+    }
+},
+fill: {
+    type: ['pattern', 'solid'],
+    pattern: {
+      style: ['slantedLines'],
+      width: 4,
+      height: 6
+    }
+  }, 
+
+grid: { show: false, 
+  padding: {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
+  }
+ },
+xaxis: {
+    categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+    labels: { show: false },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
+    crosshairs: { show: false }
+},
+yaxis: { show: false },
+legend: { show: false },
+dataLabels: { enabled: false },
+colors: [
+    '#d1d5db',
+    '#16a34a',
+    '#86efac',
+    '#166534',
+    '#22c55e',
+    '#d1d5db',
+    '#d1d5db'
+]
+};
+
+const chart = new ApexCharts(
+document.querySelector('#projectAnalytics'),
+options
+);
+
+chart.render();
+
+console.log(window.ApexCharts);
+
