@@ -193,11 +193,208 @@ body{
 .mrc-button{
     margin-top: 30px;
     width: 100%;
-    padding: 25px 20px;
+    padding: 15px 20px;
     font-size: 20px;
     background: linear-gradient(170deg, rgb(0, 78, 0), rgb(0, 122, 0));
     color: white;
-    border-radius: 30px;
+    border-radius: 60px;
     border: none;
     font-size: 20px;
+}
+
+
+.team-collab-progress{
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+}
+
+.team-collab{
+    width: 35rem;
+    padding: 15px 12px;
+    background-color: white;
+    border-radius: 20px;
+}
+.team-profile{
+    height: 182px;
+    /* overflow: scroll; */
+}
+.tc-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tc-header h5{
+    font-size: 23px;
+}
+.team-member-adder-btn{
+    padding: 8px 20px;
+    font-size: 17px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid rgb(0, 78, 0);
+    color: rgb(0, 78, 0);
+    background-color: white;
+    cursor: pointer;
+}
+
+.team-member-dp{
+    width: 38px;
+    height: 38px;
+    border-radius: 50px;
+    padding: 6px;
+    border: none;
+    background-color: white;
+    border: 1px solid yellow;
+}
+.team-member-dp img{
+    width: 100%;
+}
+.team-p-box{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
+.team-member-info{
+    width: 100%;
+}
+.team-member-info h5{
+    font-size: 15px;
+    font-weight: 300;
+}
+.team-member-info-role{
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.team-member-role-progress{
+    margin-left: auto;
+    padding: 2px 7px;
+    font-weight: 700;  
+    font-size: 10px;
+    border-radius: 5px;
+}
+.team-member-info-role p{
+    font-size: 15px;
+}
+
+.progress-checker-container{
+    width: 26rem;
+    padding: 15px 12px;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.progress-checker-container h3{
+    font-size: 23px;
+}
+.progress-svg-container{
+    margin-top: 15px;
+    justify-self: center;
+}
+.progress-percentage{
+    position: absolute;
+    left: 64.2%;
+    top: 81%;
+    /* transform: translate(-50%, -50%); */
+    text-align: center;
+}
+.progress-percentage h5{
+    font-size: 65px;
+    font-weight: bold;
+}
+.progress-percentage p{
+    font-size: 17px;
+    margin: 0;
+}
+.progress-checker-texts{
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+    gap: 20px;
+    justify-self: center;
+}
+.progress-checker-texts div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.checker-color-box{
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    background-color: black;
+}
+
+.projects-flex-with-tracker{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.project-and-time-tracker{
+    flex: 1;
+}
+.project-stack-tracker{
+    padding: 15px 12px;
+    background-color: white;
+    border-radius: 20px;
+}
+.ptt-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.ptt-header h3{
+    font-size: 23px;
+}
+.ptt-project-adder{
+    padding: 2px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 50px;
+    border: 2px solid rgb(0, 122, 0);
+    color: rgb(0, 122, 0);
+    background-color: transparent;
+}
+
+.project-types-and-date{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+.project-type-name-date h4{
+    font-size: 18px;
+}
+.project-type-name-date p{
+    font-size: 15px;
+    margin-top: 4px;
+}
+.project-type-icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+.project-type-icon img{
+    width: 100%;
+}
+
+.list-of-project-works{
+    margin-top: 20px;
+}
+
+.project-time-tracker{
+    padding: 15px 12px;
+    background-color: white;
+    border-radius: 20px;   
+}
+.tracker-timer-counting{
+    font-size: 30px;
+    justify-self: center;
+    margin: 29px;
 }

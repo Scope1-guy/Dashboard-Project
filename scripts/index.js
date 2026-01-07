@@ -105,3 +105,112 @@ chart.render();
 
 console.log(window.ApexCharts);
 
+
+const teamCollaborationMembers =[{
+    memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    memberName: "Samuel Olalekan",
+    workingOn: "Github Project Repository",
+    roleProgress: "Completed",
+    color: "rgb(0, 78, 0)",
+    border: "rgba(66, 128, 66, 0.27)"
+},{
+    memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    memberName: "Edward Noah",
+    workingOn: "Integrate User Authentication System",
+    roleProgress: "InProgress",
+    color: "rgb(241, 194, 92)",
+    border: "rgb(243, 209, 136, 0.27)"
+},{
+    memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    memberName: "Oluwasola Oluwakemi",
+    workingOn: "Develop Search and Filter Functionality",
+    roleProgress: "Pending",
+    color: "rgb(255, 0, 119)",
+    border: "rgb(245, 188, 215, 0.27)"
+},{
+    memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    memberName: "Jude Judex",
+    workingOn: "Responsive Layout  for Homepage",
+    roleProgress: "InProgress",
+    color: "rgb(241, 194, 92)",
+    border: "rgb(243, 209, 136, 0.27)"
+}];
+
+let membersCollaborationHTML = "";
+
+teamCollaborationMembers.forEach((members) => {
+    membersCollaborationHTML += `
+    <div class="team-p-box">
+        <div class="team-member-dp">
+            <img src="${members.memberPicture}">
+        </div>
+        <div class="team-member-info">
+            <h5>${members.memberName}</h5>
+            <div class="team-member-info-role">
+                <p>Working on <b>${members.workingOn}</b></p>
+                <button class="team-member-role-progress" style="background-color: ${members.border}; color: ${members.color}; border: 1px solid ${members.color};">${members.roleProgress}</button>
+            </div>
+        </div>
+    </div>
+    `;
+})
+
+document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
+
+
+
+// PROGRESS TRACKER BAR
+const arc = document.querySelector(".progressArc")
+const ARC_LENGTH = 314;
+
+function setProgress(percent) {
+    const offset = ARC_LENGTH - (percent / 100) * ARC_LENGTH;
+    arc.style.strokeDashoffset = offset
+}
+
+setProgress(41);
+
+
+
+// PROJECT STACK TYPE FUNCTIONALITY
+const projectStackType = [{
+    stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+    stackName: "Develop API Endpoints",
+    dueDate: "Nov 26, 2004"
+},{
+    stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+    stackName: "Onboarding Flow",
+    dueDate: "Nov 26, 2004"
+},{
+    stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+    stackName: "Build Dashboard",
+    dueDate: "Nov 26, 2004"
+},{
+    stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+    stackName: "Optimize Page Load",
+    dueDate: "Nov 26, 2004"
+},{
+    stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+    stackName: "Cross-Browser Testing",
+    dueDate: "Nov 26, 2004"
+}];
+
+let stackProfileHTML = "";
+
+projectStackType.forEach((stack) => {
+    stackProfileHTML += `
+    <div class="project-types-and-date">
+        <div class="project-type-icon">
+            <img src="${stack.stackImage}">
+        </div>
+        <div class="project-type-name-date">
+            <h4>${stack.stackName}</h4>
+            <p>Due-date: ${stack.dueDate}</p>
+        </div>
+    </div>
+    `;
+});
+
+document.querySelector('.list-of-project-works').innerHTML = stackProfileHTML;
+
+
