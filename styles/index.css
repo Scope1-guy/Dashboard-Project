@@ -365,7 +365,7 @@ body{
     display: flex;
     align-items: center;
     gap: 25px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 .project-type-name-date h4{
     font-size: 18px;
@@ -391,7 +391,8 @@ body{
 .project-time-tracker{
     padding: 15px 12px;
     background-color: white;
-    border-radius: 20px;   
+    border-radius: 20px;
+    margin-top: 10px;
 }
 .tracker-timer-counting{
     font-size: 30px;

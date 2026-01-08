@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASHBOARD</title>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/task.css">
 </head>
 <body>
 
@@ -17,11 +18,11 @@
             <div class="sidebar-lists">
                 <h5 class="sidebar-subtitle">MENU</h5>
                 <ul class="sidebar-sublists">
-                    <li>Dashboard</li>
-                    <li>Tasks</li>
-                    <li>Calendar</li>
-                    <li>Analytics</li>
-                    <li>Team</li>
+                    <li class="dashboard-li">Dashboard</li>
+                    <li class="task-li">Tasks</li>
+                    <li class="calendar-li">Calendar</li>
+                    <l class="analytics-li">Analytics</li>
+                    <li class="team-li">Team</li>
                 </ul>
 
                 <h5 class="sidebar-subtitle">GENERAL</h5>
@@ -56,105 +57,6 @@
             </header>
 
             <div class="dashboard-page">
-                <div class="db-plus-tsk">
-                    <div class="db-text">
-                        <h1>Dashboard</h1>
-                        <p>Plan, prioritize, and accomplish your task with ease.</p>
-                    </div>
-                    <div class="db-task-btn">
-                        <button class="task-btn add-task-btn">+ Add Project</button>
-                        <button class="task-btn import-task-btn">Import Data</button>
-                    </div>
-                </div>
-
-                <div class="projects-divs-container"></div>
-
-                <div class="projects-flex-with-tracker"> <!--THE PROJECTS AND TIME-TRACKER CONTAINER-->
-
-                    <div> <!--ANALYTICS AND REMINDER CONTAINER  PLUS TEAM COLLABORATION AND PROJECT PROGRESS CONTAINER-->
-
-                        <div class="am-container"> <!--ANALYTICS AND REMINDER CONTAINER -->
-                            <div class="analytics-container">
-                                <h3>Project Analytics</h3>
-                                <div id="projectAnalytics" class="projectAnalytics"></div>
-                            </div>
-        
-                            <div class="meeting-remainder-container">
-                                <h3 class="mrc-title">Reminders</h3>
-        
-                                <p class="mrc-text">Meeting with Arc Company</p>
-                                <p class="mrc-time">Time: 02:00pm - 04:00pm</p>
-                                <button class="mrc-button">Start Meeting</button>
-                            </div>
-                        </div>
-        
-                        <div class="team-collab-progress"> <!--TEAM COLLABORATION AND PROJECT PROGRESS CONTAINER -->
-                            <div class="team-collab">
-                                <div class="tc-header">
-                                    <h5>Team Collaboration</h5>
-                                    <button class="team-member-adder-btn">+ Add Member</button>
-                                </div>
-        
-                                <div class="team-profile">
-                                </div>
-                            </div>
-        
-                            <div class="progress-checker-container">
-                                <h3>Project Progress</h3>
-                                <div class="progress-svg-container">
-                                    <svg width="240" height="120" viewBox="0 0 240 120">
-                                        <path d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#e5e7eb" stroke-width="16"/>
-                                        <path class="progressArc" d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#15803d" stroke-width="16" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"/>
-                                    </svg>
-                                    <div class="progress-percentage">
-                                        <h5 class="percentage-number">41%</h5>
-                                        <p>Project Ended</p>
-                                    </div>
-                                </div>
-                                <div class="progress-checker-texts">
-                                    <div>
-                                        <div class="checker-color-box"></div>
-                                        <p>Completed</p>
-                                    </div>
-                                    <div>
-                                        <div class="checker-color-box"></div>
-                                        <p>In Progress</p>
-                                    </div>
-                                    <div>
-                                        <div class="checker-color-box"></div>
-                                        <p>Pending</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
-    
-    
-                    <div class="project-and-time-tracker"> <!--PROJECT AND TIME TRACKER CONTAINER-->
-                        <div class="project-stack-tracker">
-                            <div class="ptt-header">
-                                <h3>Project</h3>
-                                <button class="ptt-project-adder">+ New</button>
-                            </div>
-        
-                            <div class="list-of-project-works">
-                            </div>
-                        </div>
-
-                        <div class="project-time-tracker">
-                            <h3>Time Tracker</h3>
-
-                            <p class="tracker-timer-counting">01:24:08</p>
-
-                            <button class="pause-and-play-btn">PLAY</button>
-                            <button class="stop-btn"> STOP</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div>
         </main>
     </div>

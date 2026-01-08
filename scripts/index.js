@@ -1,3 +1,248 @@
+const  dashBoardPageFullHTML = `
+<div class="db-plus-tsk">
+    <div class="db-text">
+        <h1>Dashboard</h1>
+        <p>Plan, prioritize, and accomplish your task with ease.</p>
+    </div>
+    <div class="db-task-btn">
+        <button class="task-btn add-task-btn">+ Add Project</button>
+        <button class="task-btn import-task-btn">Import Data</button>
+    </div>
+</div>
+
+<div class="projects-divs-container"></div>
+
+<div class="projects-flex-with-tracker"> <!--THE PROJECTS AND TIME-TRACKER CONTAINER-->
+
+    <div> <!--ANALYTICS AND REMINDER CONTAINER  PLUS TEAM COLLABORATION AND PROJECT PROGRESS CONTAINER-->
+
+        <div class="am-container"> <!--ANALYTICS AND REMINDER CONTAINER -->
+            <div class="analytics-container">
+                <h3>Project Analytics</h3>
+                <div id="projectAnalytics" class="projectAnalytics"></div>
+            </div>
+
+            <div class="meeting-remainder-container">
+                <h3 class="mrc-title">Reminders</h3>
+
+                <p class="mrc-text">Meeting with Arc Company</p>
+                <p class="mrc-time">Time: 02:00pm - 04:00pm</p>
+                <button class="mrc-button">Start Meeting</button>
+            </div>
+        </div>
+
+        <div class="team-collab-progress"> <!--TEAM COLLABORATION AND PROJECT PROGRESS CONTAINER -->
+            <div class="team-collab">
+                <div class="tc-header">
+                    <h5>Team Collaboration</h5>
+                    <button class="team-member-adder-btn">+ Add Member</button>
+                </div>
+
+                <div class="team-profile">
+                </div>
+            </div>
+
+            <div class="progress-checker-container">
+                <h3>Project Progress</h3>
+                <div class="progress-svg-container">
+                    <svg width="240" height="120" viewBox="0 0 240 120">
+                        <path d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#e5e7eb" stroke-width="16"/>
+                        <path class="progressArc" d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#15803d" stroke-width="16" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"/>
+                    </svg>
+                    <div class="progress-percentage">
+                        <h5 class="percentage-number">41%</h5>
+                        <p>Project Ended</p>
+                    </div>
+                </div>
+                <div class="progress-checker-texts">
+                    <div>
+                        <div class="checker-color-box"></div>
+                        <p>Completed</p>
+                    </div>
+                    <div>
+                        <div class="checker-color-box"></div>
+                        <p>In Progress</p>
+                    </div>
+                    <div>
+                        <div class="checker-color-box"></div>
+                        <p>Pending</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="project-and-time-tracker"> <!--PROJECT AND TIME TRACKER CONTAINER-->
+        <div class="project-stack-tracker">
+            <div class="ptt-header">
+                <h3>Project</h3>
+                <button class="ptt-project-adder">+ New</button>
+            </div>
+
+            <div class="list-of-project-works">
+            </div>
+        </div>
+
+        <div class="project-time-tracker">
+            <h3>Time Tracker</h3>
+
+            <p class="tracker-timer-counting">01:24:08</p>
+
+            <button class="pause-and-play-btn">PLAY</button>
+            <button class="stop-btn"> STOP</button>
+        </div>
+
+    </div>
+
+</div>
+`;
+const taskPageFullHTML = `
+    <div class="task-box">
+        <!-- Header -->
+        <div class="task-box-header">
+            <div>
+            <h2>Tasks</h2>
+            <p>Manage and organize your tasks efficiently</p>
+            </div>
+            <button class="add-task-btn">+ Add Task</button>
+        </div>
+        
+        <!-- Filters -->
+        <div class="task-filters">
+            <button class="filter active">All Tasks</button>
+            <button class="filter">In Progress</button>
+            <button class="filter">Completed</button>
+            <button class="filter">Overdue</button>
+        </div>
+        
+        <!-- TODAY -->
+        <div class="task-group">
+            <h4>Today</h4>
+        
+            <div class="task-item">
+            <div class="task-left">
+                <input type="checkbox" />
+                <div>
+                <h5>User Authentication System Bug Fixes</h5>
+                <span class="task-tag">Website Development</span>
+                </div>
+            </div>
+        
+            <div class="task-right">
+                <span class="priority high">High</span>
+                <div class="progress">
+                <div class="progress-bar" style="width:50%"></div>
+                </div>
+                <span class="due">Today</span>
+                <div class="avatars">
+                <img src="https://i.pravatar.cc/30?img=12" />
+                <img src="https://i.pravatar.cc/30?img=32" />
+                </div>
+            </div>
+            </div>
+        
+            <div class="task-item">
+            <div class="task-left">
+                <input type="checkbox" />
+                <div>
+                <h5>Update User Profile Page UI</h5>
+                <span class="task-tag">Internal Dashboard</span>
+                </div>
+            </div>
+        
+            <div class="task-right">
+                <span class="priority medium">Medium</span>
+                <div class="progress">
+                <div class="progress-bar" style="width:20%"></div>
+                </div>
+                <span class="due">Today</span>
+                <div class="avatars">
+                <img src="https://i.pravatar.cc/30?img=15" />
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- UPCOMING -->
+        <div class="task-group">
+            <h4>Upcoming</h4>
+        
+            <div class="task-item">
+            <div class="task-left">
+                <input type="checkbox" />
+                <div>
+                <h5>Optimize SEO Settings</h5>
+                <span class="task-tag">Marketing Campaign</span>
+                </div>
+            </div>
+        
+            <div class="task-right">
+                <span class="priority high">High</span>
+                <div class="progress">
+                <div class="progress-bar" style="width:0%"></div>
+                </div>
+                <span class="due">Apr 26</span>
+                <div class="avatars">
+                <img src="https://i.pravatar.cc/30?img=21" />
+                </div>
+            </div>
+            </div>
+        
+            <div class="task-item">
+            <div class="task-left">
+                <input type="checkbox" />
+                <div>
+                <h5>Prepare Presentation Slides</h5>
+                <span class="task-tag">Onboarding</span>
+                </div>
+            </div>
+        
+            <div class="task-right">
+                <span class="priority medium">Medium</span>
+                <div class="progress">
+                <div class="progress-bar" style="width:10%"></div>
+                </div>
+                <span class="due">Apr 27</span>
+                <div class="avatars">
+                <img src="https://i.pravatar.cc/30?img=18" />
+                </div>
+            </div>
+            </div>
+        
+            <div class="task-item">
+            <div class="task-left">
+                <input type="checkbox" />
+                <div>
+                <h5>Fix Dashboard Layout Issue</h5>
+                <span class="task-tag">Internal Dashboard</span>
+                </div>
+            </div>
+        
+            <div class="task-right">
+                <span class="priority low">Low</span>
+                <div class="progress">
+                <div class="progress-bar" style="width:0%"></div>
+                </div>
+                <span class="due">Apr 29</span>
+                <div class="avatars">
+                <img src="https://i.pravatar.cc/30?img=8" />
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+`;
+const previewContainer = document.querySelector('.dashboard-page');
+
+const dashboardLI = document.querySelector('.dashboard-li');
+const taskLI = document.querySelector('.task-li');
+const calendarLI = document.querySelector('.calendar-li');
+const analyticsLI = document.querySelector('.analytics-li');
+const teamLI = document.querySelector('.team-li');
+
+// PROJECT TYPE CODE 
 const projectsType = [{
     title: "Total Projects",
     action: () => {},
@@ -38,74 +283,64 @@ projectsType.forEach((project) => {
         </div>
     `;
 });
+ 
 
-const projectsContainer = document.querySelector(".projects-divs-container");
-projectsContainer.innerHTML = projectHTML;
-
+// PROJECT ANALYTICS
 const options = {
-chart: {
-    type: 'bar',
-    height: 200,
-    toolbar: { show: false }
-},
-series: [{
-    data: [30, 50, 40, 70, 60, 45, 35]
-}],
-plotOptions: {
-    bar: {
-    columnWidth: '60%',
-    borderRadius: 10,
-    distributed: true
-    }
-},
-fill: {
-    type: ['pattern', 'solid'],
-    pattern: {
-      style: ['slantedLines'],
-      width: 4,
-      height: 6
-    }
-  }, 
-
-grid: { show: false, 
-  padding: {
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0
-  }
- },
-xaxis: {
-    categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-    labels: { show: false },
-    axisBorder: { show: false },
-    axisTicks: { show: false },
-    crosshairs: { show: false }
-},
-yaxis: { show: false },
-legend: { show: false },
-dataLabels: { enabled: false },
-colors: [
-    '#d1d5db',
-    '#16a34a',
-    '#86efac',
-    '#166534',
-    '#22c55e',
-    '#d1d5db',
-    '#d1d5db'
-]
+    chart: {
+        type: 'bar',
+        height: 200,
+        toolbar: { show: false }
+    },
+    series: [{
+        data: [30, 50, 40, 70, 60, 45, 35]
+    }],
+    plotOptions: {
+        bar: {
+        columnWidth: '60%',
+        borderRadius: 10,
+        distributed: true
+        }
+    },
+    fill: {
+        type: ['pattern', 'solid'],
+        pattern: {
+          style: ['slantedLines'],
+          width: 4,
+          height: 6
+        }
+      }, 
+    
+    grid: { show: false, 
+      padding: {
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0
+      }
+     },
+    xaxis: {
+        categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+        labels: { show: false },
+        axisBorder: { show: false },
+        axisTicks: { show: false },
+        crosshairs: { show: false }
+    },
+    yaxis: { show: false },
+    legend: { show: false },
+    dataLabels: { enabled: false },
+    colors: [
+        '#d1d5db',
+        '#16a34a',
+        '#86efac',
+        '#166534',
+        '#22c55e',
+        '#d1d5db',
+        '#d1d5db'
+    ]
 };
 
-const chart = new ApexCharts(
-document.querySelector('#projectAnalytics'),
-options
-);
-
-chart.render();
-
-console.log(window.ApexCharts);
-
-
+// TEAM COLLABORATION
 const teamCollaborationMembers =[{
     memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
     memberName: "Samuel Olalekan",
@@ -155,23 +390,6 @@ teamCollaborationMembers.forEach((members) => {
     `;
 })
 
-document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
-
-
-
-// PROGRESS TRACKER BAR
-const arc = document.querySelector(".progressArc")
-const ARC_LENGTH = 314;
-
-function setProgress(percent) {
-    const offset = ARC_LENGTH - (percent / 100) * ARC_LENGTH;
-    arc.style.strokeDashoffset = offset
-}
-
-setProgress(41);
-
-
-
 // PROJECT STACK TYPE FUNCTIONALITY
 const projectStackType = [{
     stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
@@ -211,6 +429,51 @@ projectStackType.forEach((stack) => {
     `;
 });
 
-document.querySelector('.list-of-project-works').innerHTML = stackProfileHTML;
+// RENDERING OF THE DASHBOARD
+function renderPages(pageHTML) {
+    previewContainer.innerHTML = pageHTML;
+}
+
+const initDashboard = () => {
+    const projectsContainer = document.querySelector(".projects-divs-container");
+    projectsContainer.innerHTML = projectHTML;
+
+    const chart = new ApexCharts(document.querySelector('#projectAnalytics'),options);
+    chart.render();
+
+    document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
+
+    // PROGRESS TRACKER BAR
+    const arc = document.querySelector(".progressArc")
+    const ARC_LENGTH = 314;
+
+    function setProgress(percent) {
+        const offset = ARC_LENGTH - (percent / 100) * ARC_LENGTH;
+        arc.style.strokeDashoffset = offset
+    }
+
+    setProgress(58);
+
+    document.querySelector('.list-of-project-works').innerHTML = stackProfileHTML;
+
+};
+
+renderPages(dashBoardPageFullHTML); // Initial Page.
+initDashboard()
 
 
+// PAGE SWITCHER BUTTON CLICKER
+
+dashboardLI.addEventListener('click', () => {
+    renderPages(dashBoardPageFullHTML);
+    initDashboard();
+  });
+  
+taskLI.addEventListener('click', () => {
+    renderPages(taskPageFullHTML);
+  });
+  
+// PAGE SWITCHER BUTTON CLICKER
+
+
+// console.log(window.ApexCharts);

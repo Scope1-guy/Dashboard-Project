@@ -1,0 +1,149 @@
+.task-box {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    font-family: system-ui, sans-serif;
+  }
+  
+  /* Header */
+  .task-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-box-header h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  
+  .task-box-header p {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #7b7b7b;
+  }
+  
+  .add-task-btn {
+    background: #1f7f56;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  
+  /* Filters */
+  .task-filters {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .filter {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #e5e5e5;
+    background: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .filter.active {
+    background: #1f7f56;
+    color: #fff;
+    border-color: #1f7f56;
+  }
+  
+  /* Group */
+  .task-group h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  
+  /* Task Item */
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid #eee;
+  }
+  
+  .task-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .task-left h5 {
+    margin: 0;
+    font-size: 15px;
+  }
+  
+  .task-tag {
+    font-size: 12px;
+    color: #1f7f56;
+  }
+  
+  /* Right */
+  .task-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .priority {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .priority.high {
+    background: #ffebeb;
+    color: #d93025;
+  }
+  
+  .priority.medium {
+    background: #fff4d6;
+    color: #b26a00;
+  }
+  
+  .priority.low {
+    background: #e7f6ee;
+    color: #1f7f56;
+  }
+  
+  /* Progress */
+  .progress {
+    width: 90px;
+    height: 6px;
+    background: #eaeaea;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background: #1f7f56;
+    border-radius: 999px;
+  }
+  
+  /* Due */
+  .due {
+    font-size: 13px;
+    color: #444;
+  }
+  
+  /* Avatars */
+  .avatars {
+    display: flex;
+  }
+  
+  .avatars img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-left: -8px;
+  }
+  
