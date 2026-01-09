@@ -40,6 +40,83 @@ const  dashBoardPageFullHTML = `
 
                 <div class="team-profile">
                 </div>
+
+                <dialog class="team-member-adder-popUp">
+                    <form>
+                        <input type="file" class="imageInput" accept="*image/*">
+
+                        <div class="duo-form-for-flex">
+                            <div>
+                                <label for="firstName">First Name</label> <br>
+                                <input type="text" placeholder="First Name" class="member-first-name">
+                            </div>
+                
+                            <div>
+                                <label for="lastName">Last Name</label> <br>
+                                <input type="text" placeholder="Last Name" class="member-last-name">
+                            </div>
+                        </div>
+
+                        <div class="duo-form-for-flex">
+                            <div>
+                                <label for="email">Email</label> <br>
+                                <input type="email" placeholder="Email address" class="member-email">
+                            </div>
+                
+                            <div>
+                                <label>Phone Number</label> <br>
+                                <input type="number" placeholder="+2348012345678" class="member-phone-number">
+                            </div>
+                        </div>
+
+                        <div class="duo-form-for-flex">
+                            <div>
+                                <label for="country">Country</label> <br>
+                                <select class="country">
+                                    <option value="">Select Country</option>
+                                </select>
+                            </div>
+                
+                            <div>
+                                <label for="state">State</label> <br>
+                                <select class="state">
+                                    <option value="">Select State</option>
+                                </select>                
+                            </div>
+                        </div>
+
+                        <div class="duo-form-for-flex">
+                            <div>
+                                <label for="github">Your Github Link</label> <br>
+                                <input type="text" placeholder="Github Link" class="member--github-li">
+                            </div>
+                
+                            <div>
+                                <label>Your Portfolio Link</label> <br>
+                                <input type="text" placeholder="www.portfolio.com" class="member--portfolio-li">
+                            </div>
+                        </div>
+
+                        <div class="duo-form-for-flex">
+                            <div>
+                                <label>Role to be added to</label> <br>
+                                <input type="text" placeholder="Enter Role" class="role-input">
+                            </div>
+                
+                            <div>
+                                <label>Level Completion</label> <br>
+                                <select class="role-completion">
+                                    <option value="Completed">Completed</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="In Process">In Process</option>
+                                </select> 
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="team-adder-submit">Submit</button>
+                    </form>
+                </dialog>
             </div>
 
             <div class="progress-checker-container">
@@ -234,6 +311,29 @@ const taskPageFullHTML = `
         </div>
     </div>
 `;
+const calendarPageFullHTML = `
+<div class="calendar-box">
+  <div class="calendar-header">
+    <button class="cal-prev">&lt;</button>
+    <h2 class="cal-title"></h2>
+    <button class="cal-next">&gt;</button>
+    <button class="cal-add">+ Add Event</button>
+  </div>
+
+  <div class="calendar-weekdays">
+    <span>Sun</span>
+    <span>Mon</span>
+    <span>Tue</span>
+    <span>Wed</span>
+    <span>Thu</span>
+    <span>Fri</span>
+    <span>Sat</span>
+  </div>
+
+  <div class="calendar-days"></div>
+</div>
+`;
+
 const previewContainer = document.querySelector('.dashboard-page');
 
 const dashboardLI = document.querySelector('.dashboard-li');
@@ -362,13 +462,6 @@ const teamCollaborationMembers =[{
     roleProgress: "Pending",
     color: "rgb(255, 0, 119)",
     border: "rgb(245, 188, 215, 0.27)"
-},{
-    memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
-    memberName: "Jude Judex",
-    workingOn: "Responsive Layout  for Homepage",
-    roleProgress: "InProgress",
-    color: "rgb(241, 194, 92)",
-    border: "rgb(243, 209, 136, 0.27)"
 }];
 
 let membersCollaborationHTML = "";
@@ -377,7 +470,7 @@ teamCollaborationMembers.forEach((members) => {
     membersCollaborationHTML += `
     <div class="team-p-box">
         <div class="team-member-dp">
-            <img src="${members.memberPicture}">
+            <img class="member-dp-img" src="${members.memberPicture}">
         </div>
         <div class="team-member-info">
             <h5>${members.memberName}</h5>
@@ -389,6 +482,12 @@ teamCollaborationMembers.forEach((members) => {
     </div>
     `;
 })
+
+// TEAM COLLABORATION - ADD MEMBER FEATURE.
+// teamMemberAdderBtn.addEventListener('click', () => {
+    
+// })
+
 
 // PROJECT STACK TYPE FUNCTIONALITY
 const projectStackType = [{
@@ -443,6 +542,97 @@ const initDashboard = () => {
 
     document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
 
+    // TEAM MEMBER ADDER
+    const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
+    const addMemberFormBox = previewContainer.querySelector('.team-member-adder-popUp');
+    const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
+
+    //Form inputs element
+    // const picInput = previewContainer.querySelector('.imageInput');
+    // const picInputImg = previewContainer.querySelector('.member-dp-img')
+
+    // picInput.addEventListener("change" , () => {
+    //     const file = picInput.files[0];
+    //     if (!file) return;
+
+    //     picInputImg.src = URL.createObjectURL(file);
+    // });
+    const memFirstName = previewContainer.querySelector('.member-first-name');
+    const memLastName = previewContainer.querySelector('.member-last-name');
+    const memEmail = previewContainer.querySelector('.member-email');
+    const memPhoneNo = previewContainer.querySelector('.member-phone-number');
+    const roleAppliedFor = previewContainer.querySelector('.role-input');
+    const roleAppliedCompletion = previewContainer.querySelector('.role-completion')
+
+
+
+    // function countryAndStateDRopdown () {
+    //     const countrySelect = previewContainer.querySelector(".country");
+    //     const stateSelect = previewContainer.querySelector(".state");
+
+    //                 // Country and State Dropdown code
+    
+  
+    //         // Load countries
+    //         const countries = csc.Country.getAllCountries();
+        
+    //         countries.forEach(country => {
+    //         const option = document.createElement("option");
+    //         option.value = country.isoCode;
+    //         option.textContent = country.name;
+    //         countrySelect.appendChild(option);
+    //         });
+        
+    //         // Handle country change
+    //         countrySelect.addEventListener("change", () => {
+    //         const countryCode = countrySelect.value;
+    //         stateSelect.innerHTML = '<option value="">Select State</option>';
+        
+    //         if (!countryCode) {
+    //             stateSelect.disabled = true;
+    //             return;
+    //         }
+        
+    //         const states = csc.State.getStatesOfCountry(countryCode);
+        
+    //         states.forEach(state => {
+    //             const option = document.createElement("option");
+    //             option.value = state.isoCode;
+    //             option.textContent = state.name;
+    //             stateSelect.appendChild(option);
+    //         });
+        
+    //         stateSelect.disabled = false;
+    //         });
+    //         // Country and State Dropdown code
+    // }
+
+
+    teamMemberAdderBtn.addEventListener('click', () => {
+        addMemberFormBox.showModal();
+        // countryAndStateDRopdown ()
+    });
+
+    closeAddMemberFormBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        addMemberFormBox.close();
+
+        const NEW_MEMBER_OBJECT = {
+            memberPicture: "",
+            memberName: memFirstName + " " + memLastName,
+            workingOn: roleAppliedFor,
+            roleProgress: roleAppliedCompletion,
+            color: "rgb(0, 78, 0)",
+            border: "rgba(66, 128, 66, 0.27)"
+        };
+
+        teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
+        console.log(NEW_MEMBER_OBJECT)
+    })
+
+    // TEAM MEMBER ADDER
+
+
     // PROGRESS TRACKER BAR
     const arc = document.querySelector(".progressArc")
     const ARC_LENGTH = 314;
@@ -472,6 +662,9 @@ dashboardLI.addEventListener('click', () => {
 taskLI.addEventListener('click', () => {
     renderPages(taskPageFullHTML);
   });
+calendarLI.addEventListener('click', () => {
+    renderPages(calendarPageFullHTML);
+})
   
 // PAGE SWITCHER BUTTON CLICKER
 
