@@ -1,3 +1,5 @@
+"use strict"
+
 const  dashBoardPageFullHTML = `
 <div class="db-plus-tsk">
     <div class="db-text">
@@ -73,14 +75,20 @@ const  dashBoardPageFullHTML = `
                             <div>
                                 <label for="country">Country</label> <br>
                                 <select class="country">
-                                    <option value="">Select Country</option>
+                                    <option value="Nigeria">Nigeria</option>
+                                    <option value="Ghana">Ghana</option>
+                                    <option value="Kenya">Kenya</option>
+                                    <option value="South Africa">South Africa</option>
                                 </select>
                             </div>
                 
                             <div>
                                 <label for="state">State</label> <br>
                                 <select class="state">
-                                    <option value="">Select State</option>
+                                    <option value="Lagos">Lagos</option>
+                                    <option value="Ilorin">Ilorin</option>
+                                    <option value="Abia">Abia</option>
+                                    <option value="Ibadan">Ibadan</option>
                                 </select>                
                             </div>
                         </div>
@@ -108,7 +116,7 @@ const  dashBoardPageFullHTML = `
                                 <select class="role-completion">
                                     <option value="Completed">Completed</option>
                                     <option value="Pending">Pending</option>
-                                    <option value="In Process">In Process</option>
+                                    <option value="InProcess">In Process</option>
                                 </select> 
                             </div>
                         </div>
@@ -464,6 +472,7 @@ const teamCollaborationMembers =[{
     border: "rgb(245, 188, 215, 0.27)"
 }];
 
+function teamMemberCollaboration() {
 let membersCollaborationHTML = "";
 
 teamCollaborationMembers.forEach((members) => {
@@ -482,11 +491,11 @@ teamCollaborationMembers.forEach((members) => {
     </div>
     `;
 })
+document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
 
-// TEAM COLLABORATION - ADD MEMBER FEATURE.
-// teamMemberAdderBtn.addEventListener('click', () => {
-    
-// })
+};
+
+
 
 
 // PROJECT STACK TYPE FUNCTIONALITY
@@ -540,7 +549,7 @@ const initDashboard = () => {
     const chart = new ApexCharts(document.querySelector('#projectAnalytics'),options);
     chart.render();
 
-    document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
+    teamMemberCollaboration(); // Team member function
 
     // TEAM MEMBER ADDER
     const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
@@ -548,15 +557,21 @@ const initDashboard = () => {
     const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
 
     //Form inputs element
-    // const picInput = previewContainer.querySelector('.imageInput');
-    // const picInputImg = previewContainer.querySelector('.member-dp-img')
+    const picInput = previewContainer.querySelector('.imageInput');
+    const picInputImg = previewContainer.querySelector('.member-dp-img')
+    let selectedMemberImage = "";
 
-    // picInput.addEventListener("change" , () => {
-    //     const file = picInput.files[0];
-    //     if (!file) return;
+    picInput.addEventListener("change" , (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-    //     picInputImg.src = URL.createObjectURL(file);
-    // });
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            selectedMemberImage = event.target.result; // Store
+        }
+        reader.readAsDataURL(file);
+    });
+
     const memFirstName = previewContainer.querySelector('.member-first-name');
     const memLastName = previewContainer.querySelector('.member-last-name');
     const memEmail = previewContainer.querySelector('.member-email');
@@ -566,67 +581,31 @@ const initDashboard = () => {
 
 
 
-    // function countryAndStateDRopdown () {
-    //     const countrySelect = previewContainer.querySelector(".country");
-    //     const stateSelect = previewContainer.querySelector(".state");
 
-    //                 // Country and State Dropdown code
-    
-  
-    //         // Load countries
-    //         const countries = csc.Country.getAllCountries();
-        
-    //         countries.forEach(country => {
-    //         const option = document.createElement("option");
-    //         option.value = country.isoCode;
-    //         option.textContent = country.name;
-    //         countrySelect.appendChild(option);
-    //         });
-        
-    //         // Handle country change
-    //         countrySelect.addEventListener("change", () => {
-    //         const countryCode = countrySelect.value;
-    //         stateSelect.innerHTML = '<option value="">Select State</option>';
-        
-    //         if (!countryCode) {
-    //             stateSelect.disabled = true;
-    //             return;
-    //         }
-        
-    //         const states = csc.State.getStatesOfCountry(countryCode);
-        
-    //         states.forEach(state => {
-    //             const option = document.createElement("option");
-    //             option.value = state.isoCode;
-    //             option.textContent = state.name;
-    //             stateSelect.appendChild(option);
-    //         });
-        
-    //         stateSelect.disabled = false;
-    //         });
-    //         // Country and State Dropdown code
-    // }
 
 
     teamMemberAdderBtn.addEventListener('click', () => {
         addMemberFormBox.showModal();
-        // countryAndStateDRopdown ()
+        
     });
 
     closeAddMemberFormBtn.addEventListener('click', (e) => {
         e.preventDefault();
         addMemberFormBox.close();
+        
+        let completionChecker = roleAppliedCompletion.value === "Pending" ? "rgb(255, 0, 119)" : roleAppliedCompletion.value === "InProgress" ? "rgb(241, 194, 92)" : "rgb(0, 78, 0)";
 
         const NEW_MEMBER_OBJECT = {
-            memberPicture: "",
-            memberName: memFirstName + " " + memLastName,
-            workingOn: roleAppliedFor,
-            roleProgress: roleAppliedCompletion,
-            color: "rgb(0, 78, 0)",
+            memberPicture: selectedMemberImage,
+            memberName: `${memFirstName.value} ${memLastName.value}`,
+            workingOn: roleAppliedFor.value,
+            roleProgress: roleAppliedCompletion.value,
+            color: completionChecker,
             border: "rgba(66, 128, 66, 0.27)"
         };
 
         teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
+        teamMemberCollaboration()
         console.log(NEW_MEMBER_OBJECT)
     })
 
