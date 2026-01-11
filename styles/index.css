@@ -41,6 +41,14 @@ body{
     list-style-type: none;
     font-size: 20px;
 }
+.sidebar-sublists li{
+    cursor: pointer;
+    margin-top: 10px;
+}
+.sidebar-sublists li:hover{
+    border-radius: 10%;
+    border-bottom: 4px solid rgb(0, 78, 0);
+}
 .mp-header{
     display: flex;
     justify-content: space-between;

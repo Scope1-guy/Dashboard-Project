@@ -1,0 +1,107 @@
+.team-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .team-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .add-member-btn {
+    padding: 10px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #16a34a;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 20px;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+  }
+  
+  /* TEAM MEMBERS */
+  
+  .team-member-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .team-member-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    border-radius: 14px;
+    background: #f9fafb;
+  }
+  
+  .team-member-card img {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+  }
+  
+  .member-info h4 {
+    margin: 0;
+  }
+  
+  .member-info p {
+    margin: 2px 0 0;
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .member-status {
+    margin-left: auto;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+  }
+  
+  .member-status.active {
+    background: #dcfce7;
+    color: #166534;
+  }
+  
+  .member-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  
+  /* TEAM SUMMARY */
+  
+  .team-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+  }
+  
+  .role-pill {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #ecfdf5;
+    color: #166534;
+    font-size: 13px;
+    width: fit-content;
+  }

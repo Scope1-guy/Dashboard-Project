@@ -320,25 +320,329 @@ const taskPageFullHTML = `
     </div>
 `;
 const calendarPageFullHTML = `
-<div class="calendar-box">
+<div class="calendar-page">
+
+  <!-- HEADER -->
   <div class="calendar-header">
-    <button class="cal-prev">&lt;</button>
-    <h2 class="cal-title"></h2>
-    <button class="cal-next">&gt;</button>
-    <button class="cal-add">+ Add Event</button>
+    <div>
+      <h2>Calendar</h2>
+      <p>View and manage your schedule</p>
+    </div>
+
+    <div class="calendar-actions">
+      <button class="calendar-nav">&lt;</button>
+      <h3 class="calendar-month">April 2026</h3>
+      <button class="calendar-nav">&gt;</button>
+    </div>
   </div>
 
-  <div class="calendar-weekdays">
-    <span>Sun</span>
-    <span>Mon</span>
-    <span>Tue</span>
-    <span>Wed</span>
-    <span>Thu</span>
-    <span>Fri</span>
-    <span>Sat</span>
+  <!-- MAIN GRID -->
+  <div class="calendar-grid">
+
+    <!-- CALENDAR -->
+    <div class="calendar-board card">
+      <div class="calendar-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span>
+        <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+
+      <div class="calendar-days">
+        <!-- Empty slots -->
+        <span class="empty"></span>
+        <span class="empty"></span>
+
+        <!-- Days -->
+        <div class="calendar-day">
+          <span>1</span>
+        </div>
+
+        <div class="calendar-day has-event">
+          <span>2</span>
+          <div class="event-dot"></div>
+        </div>
+
+        <div class="calendar-day today">
+          <span>3</span>
+          <div class="event-dot"></div>
+        </div>
+
+        <div class="calendar-day">
+          <span>4</span>
+        </div>
+
+        <div class="calendar-day has-event">
+          <span>5</span>
+          <div class="event-dot"></div>
+        </div>
+
+        <!-- Continue days dynamically later -->
+      </div>
+    </div>
+
+    <!-- EVENT PANEL -->
+    <div class="calendar-events card">
+
+      <div class="calendar-events-header">
+        <h4>Events – Apr 3</h4>
+        <button class="add-event-btn">+ Add Event</button>
+      </div>
+
+      <div class="event-list">
+
+        <div class="event-item">
+          <span class="event-time">10:00 AM</span>
+          <div>
+            <h5>Team Standup</h5>
+            <p>Zoom Meeting</p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <span class="event-time">02:00 PM</span>
+          <div>
+            <h5>Meeting with Arc Company</h5>
+            <p>Project Discussion</p>
+          </div>
+        </div>
+
+        <div class="event-item">
+          <span class="event-time">05:30 PM</span>
+          <div>
+            <h5>Code Review</h5>
+            <p>Dashboard Module</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 
-  <div class="calendar-days"></div>
+</div>
+`;
+const analyticsPageFullHTML = `
+<div class="analytics-page">
+
+  <!-- HEADER -->
+  <div class="analytics-header">
+    <div>
+      <h2>Analytics</h2>
+      <p>Track productivity, progress, and performance insights</p>
+    </div>
+
+    <div class="analytics-actions">
+      <select class="analytics-filter">
+        <option>This Week</option>
+        <option>This Month</option>
+        <option>This Year</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- TOP STATS -->
+  <div class="analytics-stats">
+    <div class="stat-card green">
+      <p>Total Tasks</p>
+      <h3>128</h3>
+      <span>↑ 12% from last week</span>
+    </div>
+
+    <div class="stat-card">
+      <p>Completed</p>
+      <h3>86</h3>
+      <span>↑ 8% improvement</span>
+    </div>
+
+    <div class="stat-card">
+      <p>In Progress</p>
+      <h3>32</h3>
+      <span>Stable</span>
+    </div>
+
+    <div class="stat-card">
+      <p>Overdue</p>
+      <h3>10</h3>
+      <span class="danger">Needs attention</span>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="analytics-grid">
+
+    <!-- LEFT -->
+    <div class="analytics-left">
+      <div class="card">
+        <h4>Task Completion Trend</h4>
+        <div id="completionChart" class="chart-box"></div>
+      </div>
+
+      <div class="card">
+        <h4>Productivity Over Time</h4>
+        <div id="productivityChart" class="chart-box"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="analytics-right">
+      <div class="card score-card">
+        <h4>Productivity Score</h4>
+        <div class="score-circle">78%</div>
+        <p>Above average performance</p>
+      </div>
+
+      <div class="card">
+        <h4>Status Breakdown</h4>
+
+        <div class="status-row">
+          <span>Completed</span>
+          <span>67%</span>
+        </div>
+
+        <div class="status-row">
+          <span>In Progress</span>
+          <span>25%</span>
+        </div>
+
+        <div class="status-row">
+          <span>Pending</span>
+          <span>8%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="analytics-bottom">
+    <div class="card">
+      <h4>Team Performance</h4>
+
+      <table class="analytics-table">
+        <thead>
+          <tr>
+            <th>Member</th>
+            <th>Tasks</th>
+            <th>Completed</th>
+            <th>Efficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Samuel Olalekan</td>
+            <td>24</td>
+            <td>20</td>
+            <td>83%</td>
+          </tr>
+          <tr>
+            <td>Edward Noah</td>
+            <td>18</td>
+            <td>14</td>
+            <td>77%</td>
+          </tr>
+          <tr>
+            <td>Oluwasola O.</td>
+            <td>15</td>
+            <td>11</td>
+            <td>73%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+`;
+const teamPageFullHTML = `
+<div class="team-page">
+
+  <!-- HEADER -->
+  <div class="team-header">
+    <div>
+      <h2>Team</h2>
+      <p>Manage your team members and their roles</p>
+    </div>
+    <button class="add-member-btn">+ Add Member</button>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="team-grid">
+
+    <!-- TEAM MEMBERS -->
+    <div class="team-members card">
+      <h3>Team Members</h3>
+
+      <div class="team-member-list">
+
+        <div class="team-member-card">
+          <img src="https://i.pravatar.cc/60?img=12">
+          <div class="member-info">
+            <h4>Samuel Olalekan</h4>
+            <p>Frontend Developer</p>
+          </div>
+          <span class="member-status active">Active</span>
+        </div>
+
+        <div class="team-member-card">
+          <img src="https://i.pravatar.cc/60?img=32">
+          <div class="member-info">
+            <h4>Edward Noah</h4>
+            <p>Backend Developer</p>
+          </div>
+          <span class="member-status active">Active</span>
+        </div>
+
+        <div class="team-member-card">
+          <img src="https://i.pravatar.cc/60?img=45">
+          <div class="member-info">
+            <h4>Oluwasola Oluwakemi</h4>
+            <p>UI/UX Designer</p>
+          </div>
+          <span class="member-status pending">Pending</span>
+        </div>
+
+        <div class="team-member-card">
+          <img src="https://i.pravatar.cc/60?img=18">
+          <div class="member-info">
+            <h4>Jude Judex</h4>
+            <p>QA Engineer</p>
+          </div>
+          <span class="member-status active">Active</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TEAM SUMMARY -->
+    <div class="team-summary card">
+      <h3>Team Overview</h3>
+
+      <div class="summary-item">
+        <span>Total Members</span>
+        <strong>4</strong>
+      </div>
+
+      <div class="summary-item">
+        <span>Active</span>
+        <strong>3</strong>
+      </div>
+
+      <div class="summary-item">
+        <span>Pending</span>
+        <strong>1</strong>
+      </div>
+
+      <hr />
+
+      <h4>Roles</h4>
+
+      <div class="role-pill">Frontend Developer</div>
+      <div class="role-pill">Backend Developer</div>
+      <div class="role-pill">UI/UX Designer</div>
+      <div class="role-pill">QA Engineer</div>
+    </div>
+
+  </div>
+
 </div>
 `;
 
@@ -626,6 +930,35 @@ const initDashboard = () => {
     document.querySelector('.list-of-project-works').innerHTML = stackProfileHTML;
 
 };
+const initCalendar = () => {
+    const days = document.querySelectorAll(".calendar-day");
+  
+    days.forEach(day => {
+      day.addEventListener("click", () => {
+        document
+          .querySelectorAll(".calendar-day")
+          .forEach(d => d.classList.remove("active"));
+  
+        day.classList.add("active");
+      });
+    });
+  
+    console.log("Calendar initialized");
+};
+const initAnalytics = () => {
+    // Example: ApexCharts or any chart library init
+    console.log("Analytics page initialized");
+};
+const initTeam = () => {
+    const addBtn = document.querySelector(".add-member-btn");
+  
+    addBtn.addEventListener("click", () => {
+      alert("Add member modal coming soon");
+    });
+  
+    console.log("Team page initialized");
+};
+  
 
 renderPages(dashBoardPageFullHTML); // Initial Page.
 initDashboard()
@@ -643,8 +976,16 @@ taskLI.addEventListener('click', () => {
   });
 calendarLI.addEventListener('click', () => {
     renderPages(calendarPageFullHTML);
+    initCalendar();
 })
-  
+analyticsLI.addEventListener('click', () => {
+    renderPages(analyticsPageFullHTML);
+})
+teamLI.addEventListener('click', () => {
+    renderPages(teamPageFullHTML);
+    initTeam();
+})
+
 // PAGE SWITCHER BUTTON CLICKER
 
 
