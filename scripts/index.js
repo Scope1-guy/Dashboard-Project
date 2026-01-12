@@ -591,7 +591,89 @@ const teamPageFullHTML = `
       <h2>Team</h2>
       <p>Manage your team members and their roles</p>
     </div>
-    <button class="add-member-btn">+ Add Member</button>
+    <button class="team-member-adder-btn">+ Add Member</button>
+    <dialog class="team-member-adder-popUp">
+      <form>
+          <input type="file" class="imageInput" accept="*image/*">
+
+          <div class="duo-form-for-flex">
+              <div>
+                  <label for="firstName">First Name</label> <br>
+                  <input type="text" placeholder="First Name" class="member-first-name">
+              </div>
+  
+              <div>
+                  <label for="lastName">Last Name</label> <br>
+                  <input type="text" placeholder="Last Name" class="member-last-name">
+              </div>
+          </div>
+
+          <div class="duo-form-for-flex">
+              <div>
+                  <label for="email">Email</label> <br>
+                  <input type="email" placeholder="Email address" class="member-email">
+              </div>
+  
+              <div>
+                  <label>Phone Number</label> <br>
+                  <input type="number" placeholder="+2348012345678" class="member-phone-number">
+              </div>
+          </div>
+
+          <div class="duo-form-for-flex">
+              <div>
+                  <label for="country">Country</label> <br>
+                  <select class="country">
+                      <option value="Nigeria">Nigeria</option>
+                      <option value="Ghana">Ghana</option>
+                      <option value="Kenya">Kenya</option>
+                      <option value="South Africa">South Africa</option>
+                  </select>
+              </div>
+  
+              <div>
+                  <label for="state">State</label> <br>
+                  <select class="state">
+                      <option value="Lagos">Lagos</option>
+                      <option value="Ilorin">Ilorin</option>
+                      <option value="Abia">Abia</option>
+                      <option value="Ibadan">Ibadan</option>
+                  </select>                
+              </div>
+          </div>
+
+          <div class="duo-form-for-flex">
+              <div>
+                  <label for="github">Your Github Link</label> <br>
+                  <input type="text" placeholder="Github Link" class="member--github-li">
+              </div>
+  
+              <div>
+                  <label>Your Portfolio Link</label> <br>
+                  <input type="text" placeholder="www.portfolio.com" class="member--portfolio-li">
+              </div>
+          </div>
+
+          <div class="duo-form-for-flex">
+              <div>
+                  <label>Role to be added to</label> <br>
+                  <input type="text" placeholder="Enter Role" class="role-input">
+              </div>
+  
+              <div>
+                  <label>Level Completion</label> <br>
+                  <select class="role-completion">
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="InProgress">InProgress</option>
+                  </select> 
+              </div>
+          </div>
+
+
+          <button type="submit" class="team-adder-submit">Submit</button>
+      </form>
+    </dialog>
   </div>
 
   <!-- MAIN GRID -->
@@ -872,51 +954,48 @@ const initDashboard = () => {
 
     teamMemberCollaboration(); // Team member function
 
-    // TEAM MEMBER ADDER
-    const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
-    const addMemberFormBox = previewContainer.querySelector('.team-member-adder-popUp');
-    const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
-    console.log()
+// Modal Add Member variables
+   // TEAM MEMBER ADDER
+   const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
+   const addMemberFormBox = previewContainer.querySelector('.team-member-adder-popUp');
+   const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
+ 
 
-    //Form inputs element
-    const picInput = previewContainer.querySelector('.imageInput');
-    const picInputImg = previewContainer.querySelector('.member-dp-img')
-    let selectedMemberImage = "";
+  //Form inputs element
+  const picInput = previewContainer.querySelector('.imageInput');
+  const picInputImg = previewContainer.querySelector('.member-dp-img')
+  let selectedMemberImage = "";
 
-    picInput.addEventListener("change" , (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
+  picInput.addEventListener("change" , (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
 
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            selectedMemberImage = event.target.result; // Store
-        }
-        reader.readAsDataURL(file);
-    });
+      const reader = new FileReader();
+      reader.onload = (event) => {
+          selectedMemberImage = event.target.result; // Store
+      }
+      reader.readAsDataURL(file);
+  });
 
-    const memFirstName = previewContainer.querySelector('.member-first-name');
-    const memLastName = previewContainer.querySelector('.member-last-name');
-    const memEmail = previewContainer.querySelector('.member-email');
-    const memPhoneNo = previewContainer.querySelector('.member-phone-number');
-    const roleAppliedFor = previewContainer.querySelector('.role-input');
-    const roleAppliedCompletion = previewContainer.querySelector('.role-completion')
-
-
-
-
+  const memFirstName = previewContainer.querySelector('.member-first-name');
+  const memLastName = previewContainer.querySelector('.member-last-name');
+  const memEmail = previewContainer.querySelector('.member-email');
+  const memPhoneNo = previewContainer.querySelector('.member-phone-number');
+  const roleAppliedFor = previewContainer.querySelector('.role-input');
+  const roleAppliedCompletion = previewContainer.querySelector('.role-completion');
 
 
     teamMemberAdderBtn.addEventListener('click', () => {
         addMemberFormBox.showModal();
-        
     });
 
     closeAddMemberFormBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        addMemberFormBox.close();
         
+        addMemberFormBox.close();
+    
         let completionChecker = roleAppliedCompletion.value === "Pending" ? "rgb(255, 0, 119)" : roleAppliedCompletion.value === "InProgress" ? "rgb(241, 194, 92)" : "rgb(0, 78, 0)";
-
+      
         const NEW_MEMBER_OBJECT = {
             memberPicture: selectedMemberImage,
             memberName: `${memFirstName.value} ${memLastName.value}`,
@@ -925,7 +1004,7 @@ const initDashboard = () => {
             color: completionChecker,
             border: "rgba(66, 128, 66, 0.27)"
         };
-
+    
         teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
         teamMemberCollaboration()
         console.log(NEW_MEMBER_OBJECT)
@@ -967,17 +1046,18 @@ const initTasks = () => {
   console.log("Tasks page initialized");
 };
 const initCalendar = () => {
-    const days = document.querySelectorAll(".calendar-day");
+    const days = previewContainer.querySelectorAll(".calendar-day");
+    const eventAdder = previewContainer.querySelector('.add-event-btn')
   
-    days.forEach(day => {
-      day.addEventListener("click", () => {
-        document
-          .querySelectorAll(".calendar-day")
-          .forEach(d => d.classList.remove("active"));
+    // days.forEach(day => {
+    //   day.addEventListener("click", () => {
+    //     document
+    //       .querySelectorAll(".calendar-day")
+    //       .forEach(d => d.classList.remove("active"));
   
-        day.classList.add("active");
-      });
-    });
+    //     day.classList.add("active");
+    //   });
+    // });
   
     console.log("Calendar initialized");
 };
@@ -986,16 +1066,10 @@ const initAnalytics = () => {
     console.log("Analytics page initialized");
 };
 const initTeam = () => {
-    const addBtn = previewContainer.querySelector(".add-member-btn");
+
 
     teamMemberForTeamSection();
     previewContainer.querySelector('.member-item-list').textContent = teamCollaborationMembers.length;
-
-
-  
-    addBtn.addEventListener("click", () => {
-      alert("Add member modal coming soon");
-    });
   
     console.log("Team page initialized");
 };
