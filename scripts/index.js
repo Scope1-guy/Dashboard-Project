@@ -945,6 +945,13 @@ function renderPages(pageHTML) {
     previewContainer.innerHTML = pageHTML;
 }
 
+function handleAddMember(newMember) {
+  teamCollaborationMembers.unshift(newMember);
+
+  teamMemberCollaboration()
+  teamMemberForTeamSection()
+}
+
 const initDashboard = () => {
     const projectsContainer = document.querySelector(".projects-divs-container");
     projectsContainer.innerHTML = projectHTML;
@@ -1004,10 +1011,10 @@ const initDashboard = () => {
             color: completionChecker,
             border: "rgba(66, 128, 66, 0.27)"
         };
+
+        handleAddMember(NEW_MEMBER_OBJECT);
     
-        teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
-        teamMemberCollaboration()
-        console.log(NEW_MEMBER_OBJECT)
+
     });
 
 
@@ -1067,11 +1074,30 @@ const initAnalytics = () => {
 };
 const initTeam = () => {
 
+  const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
+  const addMemberFormBox = previewContainer.querySelector('.team-member-adder-popUp');
+  const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
 
-    teamMemberForTeamSection();
-    previewContainer.querySelector('.member-item-list').textContent = teamCollaborationMembers.length;
-  
-    console.log("Team page initialized");
+  teamMemberAdderBtn.addEventListener('click', () => {
+    addMemberFormBox.showModal();
+});
+
+closeAddMemberFormBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    addMemberFormBox.close();
+
+    // let completionChecker = roleAppliedCompletion.value === "Pending" ? "rgb(255, 0, 119)" : roleAppliedCompletion.value === "InProgress" ? "rgb(241, 194, 92)" : "rgb(0, 78, 0)";
+
+    handleAddMember();
+    // teamMemberForTeamSection();
+
+});
+
+teamMemberForTeamSection();
+  previewContainer.querySelector('.member-item-list').textContent = teamCollaborationMembers.length;
+
+  console.log("Team page initialized");
 };
   
 
