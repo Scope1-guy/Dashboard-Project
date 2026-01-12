@@ -116,7 +116,7 @@ const  dashBoardPageFullHTML = `
                                 <select class="role-completion">
                                     <option value="Completed">Completed</option>
                                     <option value="Pending">Pending</option>
-                                    <option value="InProcess">In Process</option>
+                                    <option value="InProgress">InProgress</option>
                                 </select> 
                             </div>
                         </div>
@@ -135,7 +135,7 @@ const  dashBoardPageFullHTML = `
                         <path class="progressArc" d="M20 120 A100 100 0 0 1 220 120" fill="none" stroke="#15803d" stroke-width="16" stroke-linecap="round" stroke-dasharray="314" stroke-dashoffset="314"/>
                     </svg>
                     <div class="progress-percentage">
-                        <h5 class="percentage-number">41%</h5>
+                        <h5 class="percentage-number"></h5>
                         <p>Project Ended</p>
                     </div>
                 </div>
@@ -184,140 +184,170 @@ const  dashBoardPageFullHTML = `
 </div>
 `;
 const taskPageFullHTML = `
-    <div class="task-box">
-        <!-- Header -->
-        <div class="task-box-header">
-            <div>
-            <h2>Tasks</h2>
-            <p>Manage and organize your tasks efficiently</p>
-            </div>
-            <button class="add-task-btn">+ Add Task</button>
-        </div>
-        
-        <!-- Filters -->
-        <div class="task-filters">
-            <button class="filter active">All Tasks</button>
-            <button class="filter">In Progress</button>
-            <button class="filter">Completed</button>
-            <button class="filter">Overdue</button>
-        </div>
-        
-        <!-- TODAY -->
-        <div class="task-group">
-            <h4>Today</h4>
-        
-            <div class="task-item">
-            <div class="task-left">
-                <input type="checkbox" />
-                <div>
-                <h5>User Authentication System Bug Fixes</h5>
-                <span class="task-tag">Website Development</span>
-                </div>
-            </div>
-        
-            <div class="task-right">
-                <span class="priority high">High</span>
-                <div class="progress">
-                <div class="progress-bar" style="width:50%"></div>
-                </div>
-                <span class="due">Today</span>
-                <div class="avatars">
-                <img src="https://i.pravatar.cc/30?img=12" />
-                <img src="https://i.pravatar.cc/30?img=32" />
-                </div>
-            </div>
-            </div>
-        
-            <div class="task-item">
-            <div class="task-left">
-                <input type="checkbox" />
-                <div>
-                <h5>Update User Profile Page UI</h5>
-                <span class="task-tag">Internal Dashboard</span>
-                </div>
-            </div>
-        
-            <div class="task-right">
-                <span class="priority medium">Medium</span>
-                <div class="progress">
-                <div class="progress-bar" style="width:20%"></div>
-                </div>
-                <span class="due">Today</span>
-                <div class="avatars">
-                <img src="https://i.pravatar.cc/30?img=15" />
-                </div>
-            </div>
-            </div>
-        </div>
-        
-        <!-- UPCOMING -->
-        <div class="task-group">
-            <h4>Upcoming</h4>
-        
-            <div class="task-item">
-            <div class="task-left">
-                <input type="checkbox" />
-                <div>
-                <h5>Optimize SEO Settings</h5>
-                <span class="task-tag">Marketing Campaign</span>
-                </div>
-            </div>
-        
-            <div class="task-right">
-                <span class="priority high">High</span>
-                <div class="progress">
-                <div class="progress-bar" style="width:0%"></div>
-                </div>
-                <span class="due">Apr 26</span>
-                <div class="avatars">
-                <img src="https://i.pravatar.cc/30?img=21" />
-                </div>
-            </div>
-            </div>
-        
-            <div class="task-item">
-            <div class="task-left">
-                <input type="checkbox" />
-                <div>
-                <h5>Prepare Presentation Slides</h5>
-                <span class="task-tag">Onboarding</span>
-                </div>
-            </div>
-        
-            <div class="task-right">
-                <span class="priority medium">Medium</span>
-                <div class="progress">
-                <div class="progress-bar" style="width:10%"></div>
-                </div>
-                <span class="due">Apr 27</span>
-                <div class="avatars">
-                <img src="https://i.pravatar.cc/30?img=18" />
-                </div>
-            </div>
-            </div>
-        
-            <div class="task-item">
-            <div class="task-left">
-                <input type="checkbox" />
-                <div>
-                <h5>Fix Dashboard Layout Issue</h5>
-                <span class="task-tag">Internal Dashboard</span>
-                </div>
-            </div>
-        
-            <div class="task-right">
-                <span class="priority low">Low</span>
-                <div class="progress">
-                <div class="progress-bar" style="width:0%"></div>
-                </div>
-                <span class="due">Apr 29</span>
-                <div class="avatars">
-                <img src="https://i.pravatar.cc/30?img=8" />
-                </div>
-            </div>
-            </div>
-        </div>
+<div class="tasks-page">
+
+  <!-- HEADER -->
+  <div class="tasks-header">
+    <div>
+      <h2>Tasks</h2>
+      <p>Manage and organize your tasks efficiently.</p>
     </div>
+
+    <div class="tasks-header-actions">
+      <button class="primary-btn">+ Add Task</button>
+      <button class="icon-btn">•••</button>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="tasks-tabs">
+    <button class="tab active">All Tasks</button>
+    <button class="tab">My Tasks</button>
+    <button class="tab">In Progress</button>
+    <button class="tab">Completed</button>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="tasks-filters">
+    <button class="filter-btn">Filter</button>
+    <button class="filter-btn">Today</button>
+    <button class="filter-btn">Priority</button>
+    <button class="filter-btn">Due date</button>
+    <input class="search-input" placeholder="Search">
+  </div>
+
+  <!-- TASK GROUP -->
+  <div class="task-group">
+    <h4>Today</h4>
+
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>User Authentication System Bug Fixes</h5>
+        <span class="task-tag">Website Development</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:50%"></span></div>
+        <small>50%</small>
+      </div>
+
+      <span class="priority high">High</span>
+      <span class="due">Today</span>
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/32?img=12">
+        <img src="https://i.pravatar.cc/32?img=32">
+      </div>
+    </div>
+
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>Update User Profile Page UI</h5>
+        <span class="task-tag">Internal Dashboard</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:20%"></span></div>
+        <small>20%</small>
+      </div>
+
+      <span class="priority medium">Medium</span>
+      <span class="due">Today</span>
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/32?img=15">
+      </div>
+    </div>
+
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>Update Create Monthly Performance Report</h5>
+        <span class="task-tag">Data Analysis</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:10%"></span></div>
+        <small>10%</small>
+      </div>
+
+      <span class="priority medium">Low</span>
+      <span class="due">Today</span>
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/32?img=15">
+      </div>
+    </div>
+  </div>
+
+  <!-- UPCOMING -->
+  <div class="task-group">
+    <h4>Upcoming</h4>
+
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>Optimize SEO Settings</h5>
+        <span class="task-tag">Marketing Campaign</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:0%"></span></div>
+        <small>0%</small>
+      </div>
+
+      <span class="priority high">High</span>
+      <span class="due">Apr 26</span>
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/32?img=21">
+      </div>
+    </div>
+
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>Prepare Presentation Slides</h5>
+        <span class="task-tag">Onboarding New Clients</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:0%"></span></div>
+        <small>0%</small>
+      </div>
+
+      <span class="priority high">High</span>
+      <span class="due">Apr 26</span>
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/32?img=21">
+      </div>
+    </div>
+
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>Fix Dashboard Layout Issue</h5>
+        <span class="task-tag">Internal Dashboard</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:0%"></span></div>
+        <small>0%</small>
+      </div>
+
+      <span class="priority high">High</span>
+      <span class="due">Apr 26</span>
+
+      <div class="avatars">
+        <img src="https://i.pravatar.cc/32?img=21">
+      </div>
+    </div>
+  </div>
+
+</div>
 `;
 const calendarPageFullHTML = `
 <div class="calendar-page">
@@ -572,43 +602,6 @@ const teamPageFullHTML = `
       <h3>Team Members</h3>
 
       <div class="team-member-list">
-
-        <div class="team-member-card">
-          <img src="https://i.pravatar.cc/60?img=12">
-          <div class="member-info">
-            <h4>Samuel Olalekan</h4>
-            <p>Frontend Developer</p>
-          </div>
-          <span class="member-status active">Active</span>
-        </div>
-
-        <div class="team-member-card">
-          <img src="https://i.pravatar.cc/60?img=32">
-          <div class="member-info">
-            <h4>Edward Noah</h4>
-            <p>Backend Developer</p>
-          </div>
-          <span class="member-status active">Active</span>
-        </div>
-
-        <div class="team-member-card">
-          <img src="https://i.pravatar.cc/60?img=45">
-          <div class="member-info">
-            <h4>Oluwasola Oluwakemi</h4>
-            <p>UI/UX Designer</p>
-          </div>
-          <span class="member-status pending">Pending</span>
-        </div>
-
-        <div class="team-member-card">
-          <img src="https://i.pravatar.cc/60?img=18">
-          <div class="member-info">
-            <h4>Jude Judex</h4>
-            <p>QA Engineer</p>
-          </div>
-          <span class="member-status active">Active</span>
-        </div>
-
       </div>
     </div>
 
@@ -618,7 +611,7 @@ const teamPageFullHTML = `
 
       <div class="summary-item">
         <span>Total Members</span>
-        <strong>4</strong>
+        <strong class="member-item-list">4</strong>
       </div>
 
       <div class="summary-item">
@@ -758,6 +751,8 @@ const teamCollaborationMembers =[{
     memberName: "Samuel Olalekan",
     workingOn: "Github Project Repository",
     roleProgress: "Completed",
+    title: "Frontend",
+    activeness: "Active",
     color: "rgb(0, 78, 0)",
     border: "rgba(66, 128, 66, 0.27)"
 },{
@@ -765,6 +760,8 @@ const teamCollaborationMembers =[{
     memberName: "Edward Noah",
     workingOn: "Integrate User Authentication System",
     roleProgress: "InProgress",
+    title: "Frontend",
+    activeness: "Active",
     color: "rgb(241, 194, 92)",
     border: "rgb(243, 209, 136, 0.27)"
 },{
@@ -772,6 +769,8 @@ const teamCollaborationMembers =[{
     memberName: "Oluwasola Oluwakemi",
     workingOn: "Develop Search and Filter Functionality",
     roleProgress: "Pending",
+    title: "Frontend",
+    activeness: "Active",
     color: "rgb(255, 0, 119)",
     border: "rgb(245, 188, 215, 0.27)"
 }];
@@ -796,8 +795,26 @@ teamCollaborationMembers.forEach((members) => {
     `;
 })
 document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
-
 };
+
+function teamMemberForTeamSection() {
+  let teamSectionHTML = "";
+
+  teamCollaborationMembers.forEach((team) => {
+    teamSectionHTML += `
+      <div class="team-member-card">
+          <img src="${team.memberPicture}">
+          <div class="member-info">
+            <h4>${team.memberName}</h4>
+            <p>${team.title}</p>
+          </div>
+          <span class="member-status active">${team.activeness}</span>
+      </div>
+      `
+  });
+
+  document.querySelector('.team-member-list').innerHTML = teamSectionHTML;
+}
 
 
 
@@ -859,6 +876,7 @@ const initDashboard = () => {
     const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
     const addMemberFormBox = previewContainer.querySelector('.team-member-adder-popUp');
     const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
+    console.log()
 
     //Form inputs element
     const picInput = previewContainer.querySelector('.imageInput');
@@ -911,24 +929,42 @@ const initDashboard = () => {
         teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
         teamMemberCollaboration()
         console.log(NEW_MEMBER_OBJECT)
-    })
+    });
 
-    // TEAM MEMBER ADDER
+
+
 
 
     // PROGRESS TRACKER BAR
     const arc = document.querySelector(".progressArc")
     const ARC_LENGTH = 314;
+    let progressNumberInput = previewContainer.querySelector('.percentage-number');
+    const progressNumber = 81;
+
+    progressNumberInput.textContent = `${progressNumber}%`
+
 
     function setProgress(percent) {
         const offset = ARC_LENGTH - (percent / 100) * ARC_LENGTH;
         arc.style.strokeDashoffset = offset
     }
 
-    setProgress(58);
+    setProgress(progressNumber);
 
     document.querySelector('.list-of-project-works').innerHTML = stackProfileHTML;
 
+};
+const initTasks = () => {
+  const tabs = document.querySelectorAll(".tab");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+    });
+  });
+
+  console.log("Tasks page initialized");
 };
 const initCalendar = () => {
     const days = document.querySelectorAll(".calendar-day");
@@ -950,7 +986,12 @@ const initAnalytics = () => {
     console.log("Analytics page initialized");
 };
 const initTeam = () => {
-    const addBtn = document.querySelector(".add-member-btn");
+    const addBtn = previewContainer.querySelector(".add-member-btn");
+
+    teamMemberForTeamSection();
+    previewContainer.querySelector('.member-item-list').textContent = teamCollaborationMembers.length;
+
+
   
     addBtn.addEventListener("click", () => {
       alert("Add member modal coming soon");
@@ -973,6 +1014,7 @@ dashboardLI.addEventListener('click', () => {
   
 taskLI.addEventListener('click', () => {
     renderPages(taskPageFullHTML);
+    initTasks();
   });
 calendarLI.addEventListener('click', () => {
     renderPages(calendarPageFullHTML);
