@@ -1,6 +1,6 @@
-"use strict"
+"use strict";
 
-const  dashBoardPageFullHTML = `
+const dashBoardPageFullHTML = `
 <div class="db-plus-tsk">
     <div class="db-text">
         <h1>Dashboard</h1>
@@ -52,7 +52,7 @@ const  dashBoardPageFullHTML = `
                                 <label for="firstName">First Name</label> <br>
                                 <input type="text" placeholder="First Name" class="member-first-name">
                             </div>
-                
+
                             <div>
                                 <label for="lastName">Last Name</label> <br>
                                 <input type="text" placeholder="Last Name" class="member-last-name">
@@ -64,7 +64,7 @@ const  dashBoardPageFullHTML = `
                                 <label for="email">Email</label> <br>
                                 <input type="email" placeholder="Email address" class="member-email">
                             </div>
-                
+
                             <div>
                                 <label>Phone Number</label> <br>
                                 <input type="number" placeholder="+2348012345678" class="member-phone-number">
@@ -81,7 +81,7 @@ const  dashBoardPageFullHTML = `
                                     <option value="South Africa">South Africa</option>
                                 </select>
                             </div>
-                
+
                             <div>
                                 <label for="state">State</label> <br>
                                 <select class="state">
@@ -89,7 +89,7 @@ const  dashBoardPageFullHTML = `
                                     <option value="Ilorin">Ilorin</option>
                                     <option value="Abia">Abia</option>
                                     <option value="Ibadan">Ibadan</option>
-                                </select>                
+                                </select>
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@ const  dashBoardPageFullHTML = `
                                 <label for="github">Your Github Link</label> <br>
                                 <input type="text" placeholder="Github Link" class="member--github-li">
                             </div>
-                
+
                             <div>
                                 <label>Your Portfolio Link</label> <br>
                                 <input type="text" placeholder="www.portfolio.com" class="member--portfolio-li">
@@ -110,17 +110,16 @@ const  dashBoardPageFullHTML = `
                                 <label>Role to be added to</label> <br>
                                 <input type="text" placeholder="Enter Role" class="role-input">
                             </div>
-                
+
                             <div>
                                 <label>Level Completion</label> <br>
                                 <select class="role-completion">
                                     <option value="Completed">Completed</option>
                                     <option value="Pending">Pending</option>
                                     <option value="InProgress">InProgress</option>
-                                </select> 
+                                </select>
                             </div>
                         </div>
-
 
                         <button type="submit" class="team-adder-submit">Submit</button>
                     </form>
@@ -157,7 +156,6 @@ const  dashBoardPageFullHTML = `
         </div>
 
     </div>
-
 
     <div class="project-and-time-tracker"> <!--PROJECT AND TIME TRACKER CONTAINER-->
         <div class="project-stack-tracker">
@@ -601,7 +599,7 @@ const teamPageFullHTML = `
                   <label for="firstName">First Name</label> <br>
                   <input type="text" placeholder="First Name" class="member-first-name">
               </div>
-  
+
               <div>
                   <label for="lastName">Last Name</label> <br>
                   <input type="text" placeholder="Last Name" class="member-last-name">
@@ -613,7 +611,7 @@ const teamPageFullHTML = `
                   <label for="email">Email</label> <br>
                   <input type="email" placeholder="Email address" class="member-email">
               </div>
-  
+
               <div>
                   <label>Phone Number</label> <br>
                   <input type="number" placeholder="+2348012345678" class="member-phone-number">
@@ -630,7 +628,7 @@ const teamPageFullHTML = `
                       <option value="South Africa">South Africa</option>
                   </select>
               </div>
-  
+
               <div>
                   <label for="state">State</label> <br>
                   <select class="state">
@@ -638,7 +636,7 @@ const teamPageFullHTML = `
                       <option value="Ilorin">Ilorin</option>
                       <option value="Abia">Abia</option>
                       <option value="Ibadan">Ibadan</option>
-                  </select>                
+                  </select>
               </div>
           </div>
 
@@ -647,7 +645,7 @@ const teamPageFullHTML = `
                   <label for="github">Your Github Link</label> <br>
                   <input type="text" placeholder="Github Link" class="member--github-li">
               </div>
-  
+
               <div>
                   <label>Your Portfolio Link</label> <br>
                   <input type="text" placeholder="www.portfolio.com" class="member--portfolio-li">
@@ -659,17 +657,16 @@ const teamPageFullHTML = `
                   <label>Role to be added to</label> <br>
                   <input type="text" placeholder="Enter Role" class="role-input">
               </div>
-  
+
               <div>
                   <label>Level Completion</label> <br>
                   <select class="role-completion">
                       <option value="Completed">Completed</option>
                       <option value="Pending">Pending</option>
                       <option value="InProgress">InProgress</option>
-                  </select> 
+                  </select>
               </div>
           </div>
-
 
           <button type="submit" class="team-adder-submit">Submit</button>
       </form>
@@ -721,41 +718,46 @@ const teamPageFullHTML = `
 </div>
 `;
 
-const previewContainer = document.querySelector('.dashboard-page');
+const previewContainer = document.querySelector(".dashboard-page");
 
-const dashboardLI = document.querySelector('.dashboard-li');
-const taskLI = document.querySelector('.task-li');
-const calendarLI = document.querySelector('.calendar-li');
-const analyticsLI = document.querySelector('.analytics-li');
-const teamLI = document.querySelector('.team-li');
+const dashboardLI = document.querySelector(".dashboard-li");
+const taskLI = document.querySelector(".task-li");
+const calendarLI = document.querySelector(".calendar-li");
+const analyticsLI = document.querySelector(".analytics-li");
+const teamLI = document.querySelector(".team-li");
 
-// PROJECT TYPE CODE 
-const projectsType = [{
+// PROJECT TYPE CODE
+const projectsType = [
+  {
     title: "Total Projects",
     action: () => {},
-    number: 24, 
-    increment: "Increased from last month"
-}, {
+    number: 24,
+    increment: "Increased from last month",
+  },
+  {
     title: "Ended Projects",
     action: () => {},
-    number: 10, 
-    increment: "Increased from last month"
-}, {
+    number: 10,
+    increment: "Increased from last month",
+  },
+  {
     title: "Running Projects",
     action: () => {},
-    number: 12, 
-    increment: "Increased from last month"
-}, {
+    number: 12,
+    increment: "Increased from last month",
+  },
+  {
     title: "Pending Projects",
     action: () => {},
-    number: 2, 
-    increment: "On Discuss"
-}];
+    number: 2,
+    increment: "On Discuss",
+  },
+];
 
 let projectHTML = "";
 
 projectsType.forEach((project) => {
-    projectHTML += `
+  projectHTML += `
         <div class="project-div">
             <div class="project-type">
                 <h3>${project.title}</h3>
@@ -770,65 +772,68 @@ projectsType.forEach((project) => {
         </div>
     `;
 });
- 
 
 // PROJECT ANALYTICS
 const options = {
-    chart: {
-        type: 'bar',
-        height: 200,
-        toolbar: { show: false }
+  chart: {
+    type: "bar",
+    height: 200,
+    toolbar: { show: false },
+  },
+  series: [
+    {
+      data: [30, 50, 40, 70, 60, 45, 35],
     },
-    series: [{
-        data: [30, 50, 40, 70, 60, 45, 35]
-    }],
-    plotOptions: {
-        bar: {
-        columnWidth: '60%',
-        borderRadius: 10,
-        distributed: true
-        }
+  ],
+  plotOptions: {
+    bar: {
+      columnWidth: "60%",
+      borderRadius: 10,
+      distributed: true,
     },
-    fill: {
-        type: ['pattern', 'solid'],
-        pattern: {
-          style: ['slantedLines'],
-          width: 4,
-          height: 6
-        }
-      }, 
-    
-    grid: { show: false, 
-      padding: {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0
-      }
-     },
-    xaxis: {
-        categories: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-        labels: { show: false },
-        axisBorder: { show: false },
-        axisTicks: { show: false },
-        crosshairs: { show: false }
+  },
+  fill: {
+    type: ["pattern", "solid"],
+    pattern: {
+      style: ["slantedLines"],
+      width: 4,
+      height: 6,
     },
-    yaxis: { show: false },
-    legend: { show: false },
-    dataLabels: { enabled: false },
-    colors: [
-        '#d1d5db',
-        '#16a34a',
-        '#86efac',
-        '#166534',
-        '#22c55e',
-        '#d1d5db',
-        '#d1d5db'
-    ]
+  },
+
+  grid: {
+    show: false,
+    padding: {
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
+    },
+  },
+  xaxis: {
+    categories: ["S", "M", "T", "W", "T", "F", "S"],
+    labels: { show: false },
+    axisBorder: { show: false },
+    axisTicks: { show: false },
+    crosshairs: { show: false },
+  },
+  yaxis: { show: false },
+  legend: { show: false },
+  dataLabels: { enabled: false },
+  colors: [
+    "#d1d5db",
+    "#16a34a",
+    "#86efac",
+    "#166534",
+    "#22c55e",
+    "#d1d5db",
+    "#d1d5db",
+  ],
 };
 
 // TEAM COLLABORATION
-const teamCollaborationMembers =[{
+const teamCollaborationMembers = [
+  {
     memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
     memberName: "Samuel Olalekan",
     workingOn: "Github Project Repository",
@@ -836,8 +841,9 @@ const teamCollaborationMembers =[{
     title: "Frontend",
     activeness: "Active",
     color: "rgb(0, 78, 0)",
-    border: "rgba(66, 128, 66, 0.27)"
-},{
+    border: "rgba(66, 128, 66, 0.27)",
+  },
+  {
     memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
     memberName: "Edward Noah",
     workingOn: "Integrate User Authentication System",
@@ -845,8 +851,9 @@ const teamCollaborationMembers =[{
     title: "Frontend",
     activeness: "Active",
     color: "rgb(241, 194, 92)",
-    border: "rgb(243, 209, 136, 0.27)"
-},{
+    border: "rgb(243, 209, 136, 0.27)",
+  },
+  {
     memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
     memberName: "Oluwasola Oluwakemi",
     workingOn: "Develop Search and Filter Functionality",
@@ -854,14 +861,15 @@ const teamCollaborationMembers =[{
     title: "Frontend",
     activeness: "Active",
     color: "rgb(255, 0, 119)",
-    border: "rgb(245, 188, 215, 0.27)"
-}];
+    border: "rgb(245, 188, 215, 0.27)",
+  },
+];
 
 function teamMemberCollaboration() {
   let membersCollaborationHTML = "";
 
   teamCollaborationMembers.forEach((members) => {
-      membersCollaborationHTML += `
+    membersCollaborationHTML += `
       <div class="team-p-box">
           <div class="team-member-dp">
               <img class="member-dp-img" src="${members.memberPicture}">
@@ -875,9 +883,9 @@ function teamMemberCollaboration() {
           </div>
       </div>
       `;
-  })
+  });
   document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
-};
+}
 
 function teamMemberForTeamSection() {
   let teamSectionHTML = "";
@@ -892,43 +900,45 @@ function teamMemberForTeamSection() {
           </div>
           <span class="member-status active">${team.activeness}</span>
       </div>
-      `
+      `;
   });
 
   document.querySelector(".team-member-list").innerHTML = teamSectionHTML;
-
 }
 
-
-
-
 // PROJECT STACK TYPE FUNCTIONALITY
-const projectStackType = [{
+const projectStackType = [
+  {
     stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
     stackName: "Develop API Endpoints",
-    dueDate: "Nov 26, 2004"
-},{
+    dueDate: "Nov 26, 2004",
+  },
+  {
     stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
     stackName: "Onboarding Flow",
-    dueDate: "Nov 26, 2004"
-},{
+    dueDate: "Nov 26, 2004",
+  },
+  {
     stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
     stackName: "Build Dashboard",
-    dueDate: "Nov 26, 2004"
-},{
+    dueDate: "Nov 26, 2004",
+  },
+  {
     stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
     stackName: "Optimize Page Load",
-    dueDate: "Nov 26, 2004"
-},{
+    dueDate: "Nov 26, 2004",
+  },
+  {
     stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
     stackName: "Cross-Browser Testing",
-    dueDate: "Nov 26, 2004"
-}];
+    dueDate: "Nov 26, 2004",
+  },
+];
 
 let stackProfileHTML = "";
 
 projectStackType.forEach((stack) => {
-    stackProfileHTML += `
+  stackProfileHTML += `
     <div class="project-types-and-date">
         <div class="project-type-icon">
             <img src="${stack.stackImage}">
@@ -943,102 +953,111 @@ projectStackType.forEach((stack) => {
 
 // RENDERING OF THE DASHBOARD
 function renderPages(pageHTML) {
-    previewContainer.innerHTML = pageHTML;
+  previewContainer.innerHTML = pageHTML;
 }
 
 const initDashboard = () => {
-    const projectsContainer = document.querySelector(".projects-divs-container");
-    projectsContainer.innerHTML = projectHTML;
+  const projectsContainer = document.querySelector(".projects-divs-container");
+  projectsContainer.innerHTML = projectHTML;
 
-    const chart = new ApexCharts(document.querySelector('#projectAnalytics'),options);
-    chart.render();
+  const chart = new ApexCharts(
+    document.querySelector("#projectAnalytics"),
+    options
+  );
+  chart.render();
 
-    teamMemberCollaboration(); // Team member function
+  teamMemberCollaboration(); // Team member function
 
-// Modal Add Member variables
-   // TEAM MEMBER ADDER
-   const teamMemberAdderBtn = previewContainer.querySelector('.team-member-adder-btn');
-   const addMemberFormBox = previewContainer.querySelector('.team-member-adder-popUp');
-   const closeAddMemberFormBtn = previewContainer.querySelector('.team-adder-submit');
+  // Modal Add Member variables
+  // TEAM MEMBER ADDER
+  const teamMemberAdderBtn = previewContainer.querySelector(
+    ".team-member-adder-btn"
+  );
+  const addMemberFormBox = previewContainer.querySelector(
+    ".team-member-adder-popUp"
+  );
+  const closeAddMemberFormBtn =
+    previewContainer.querySelector(".team-adder-submit");
 
   //Form inputs element
-  const picInput = previewContainer.querySelector('.imageInput');
-  const picInputImg = previewContainer.querySelector('.member-dp-img')
+  const picInput = previewContainer.querySelector(".imageInput");
+  const picInputImg = previewContainer.querySelector(".member-dp-img");
   let selectedMemberImage = "";
 
-  picInput.addEventListener("change" , (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
+  picInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-      const reader = new FileReader();
-      reader.onload = (event) => {
-          selectedMemberImage = event.target.result; // Store
-      }
-      reader.readAsDataURL(file);
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      selectedMemberImage = event.target.result; // Store
+    };
+    reader.readAsDataURL(file);
   });
 
-  const memFirstName = previewContainer.querySelector('.member-first-name');
-  const memLastName = previewContainer.querySelector('.member-last-name');
-  const memEmail = previewContainer.querySelector('.member-email');
-  const memPhoneNo = previewContainer.querySelector('.member-phone-number');
-  const roleAppliedFor = previewContainer.querySelector('.role-input');
-  const roleAppliedCompletion = previewContainer.querySelector('.role-completion');
+  const memFirstName = previewContainer.querySelector(".member-first-name");
+  const memLastName = previewContainer.querySelector(".member-last-name");
+  const memEmail = previewContainer.querySelector(".member-email");
+  const memPhoneNo = previewContainer.querySelector(".member-phone-number");
+  const roleAppliedFor = previewContainer.querySelector(".role-input");
+  const roleAppliedCompletion =
+    previewContainer.querySelector(".role-completion");
 
-    teamMemberAdderBtn.addEventListener('click', () => {
-        addMemberFormBox.showModal();
-    });
+  teamMemberAdderBtn.addEventListener("click", () => {
+    addMemberFormBox.showModal();
+  });
 
-    closeAddMemberFormBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        addMemberFormBox.close();
-    
-        let completionChecker = roleAppliedCompletion.value === "Pending" ? "rgb(255, 0, 119)" : roleAppliedCompletion.value === "InProgress" ? "rgb(241, 194, 92)" : "rgb(0, 78, 0)";
-      
-        const NEW_MEMBER_OBJECT = {
-            memberPicture: selectedMemberImage,
-            memberName: `${memFirstName.value} ${memLastName.value}`,
-            workingOn: roleAppliedFor.value,
-            roleProgress: roleAppliedCompletion.value,
-            color: completionChecker,
-            border: "rgba(66, 128, 66, 0.27)"
-        };
+  closeAddMemberFormBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
-        teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
-        teamMemberCollaboration(); // Team member function
+    addMemberFormBox.close();
 
-        console.log(teamCollaborationMembers)
-    });
+    let completionChecker =
+      roleAppliedCompletion.value === "Pending"
+        ? "rgb(255, 0, 119)"
+        : roleAppliedCompletion.value === "InProgress"
+        ? "rgb(241, 194, 92)"
+        : "rgb(0, 78, 0)";
 
+    const NEW_MEMBER_OBJECT = {
+      memberPicture: selectedMemberImage,
+      memberName: `${memFirstName.value} ${memLastName.value}`,
+      workingOn: roleAppliedFor.value,
+      roleProgress: roleAppliedCompletion.value,
+      color: completionChecker,
+      border: "rgba(66, 128, 66, 0.27)",
+    };
 
+    teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
+    teamMemberCollaboration(); // Team member function
 
+    console.log(teamCollaborationMembers);
+  });
 
+  // PROGRESS TRACKER BAR
+  const arc = document.querySelector(".progressArc");
+  const ARC_LENGTH = 314;
+  let progressNumberInput =
+    previewContainer.querySelector(".percentage-number");
+  const progressNumber = 81;
 
-    // PROGRESS TRACKER BAR
-    const arc = document.querySelector(".progressArc")
-    const ARC_LENGTH = 314;
-    let progressNumberInput = previewContainer.querySelector('.percentage-number');
-    const progressNumber = 81;
+  progressNumberInput.textContent = `${progressNumber}%`;
 
-    progressNumberInput.textContent = `${progressNumber}%`
+  function setProgress(percent) {
+    const offset = ARC_LENGTH - (percent / 100) * ARC_LENGTH;
+    arc.style.strokeDashoffset = offset;
+  }
 
+  setProgress(progressNumber);
 
-    function setProgress(percent) {
-        const offset = ARC_LENGTH - (percent / 100) * ARC_LENGTH;
-        arc.style.strokeDashoffset = offset
-    }
-
-    setProgress(progressNumber);
-
-    document.querySelector('.list-of-project-works').innerHTML = stackProfileHTML;
-
+  document.querySelector(".list-of-project-works").innerHTML = stackProfileHTML;
 };
 const initTasks = () => {
   const tabs = document.querySelectorAll(".tab");
 
-  tabs.forEach(tab => {
+  tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
+      tabs.forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
     });
   });
@@ -1046,60 +1065,57 @@ const initTasks = () => {
   console.log("Tasks page initialized");
 };
 const initCalendar = () => {
-    const days = previewContainer.querySelectorAll(".calendar-day");
-    const eventAdder = previewContainer.querySelector('.add-event-btn')
-  
-    // days.forEach(day => {
-    //   day.addEventListener("click", () => {
-    //     document
-    //       .querySelectorAll(".calendar-day")
-    //       .forEach(d => d.classList.remove("active"));
-  
-    //     day.classList.add("active");
-    //   });
-    // });
-  
-    console.log("Calendar initialized");
+  const days = previewContainer.querySelectorAll(".calendar-day");
+  const eventAdder = previewContainer.querySelector(".add-event-btn");
+
+  // days.forEach(day => {
+  //   day.addEventListener("click", () => {
+  //     document
+  //       .querySelectorAll(".calendar-day")
+  //       .forEach(d => d.classList.remove("active"));
+
+  //     day.classList.add("active");
+  //   });
+  // });
+
+  console.log("Calendar initialized");
 };
 const initAnalytics = () => {
-    // Example: ApexCharts or any chart library init
-    console.log("Analytics page initialized");
+  // Example: ApexCharts or any chart library init
+  console.log("Analytics page initialized");
 };
 const initTeam = () => {
-  teamMemberForTeamSection()
   teamMemberForTeamSection();
-  previewContainer.querySelector('.member-item-list').textContent = teamCollaborationMembers.length;
+  previewContainer.querySelector(".member-item-list").textContent =
+    teamCollaborationMembers.length;
 };
-  
 
 renderPages(dashBoardPageFullHTML); // Initial Page.
-initDashboard()
-
-
-// PAGE SWITCHER BUTTON CLICKER
-
-dashboardLI.addEventListener('click', () => {
-    renderPages(dashBoardPageFullHTML);
-    initDashboard();
-  });
-  
-taskLI.addEventListener('click', () => {
-    renderPages(taskPageFullHTML);
-    initTasks();
-  });
-calendarLI.addEventListener('click', () => {
-    renderPages(calendarPageFullHTML);
-    initCalendar();
-})
-analyticsLI.addEventListener('click', () => {
-    renderPages(analyticsPageFullHTML);
-})
-teamLI.addEventListener('click', () => {
-    renderPages(teamPageFullHTML);
-    initTeam();
-})
+initDashboard();
 
 // PAGE SWITCHER BUTTON CLICKER
 
+dashboardLI.addEventListener("click", () => {
+  renderPages(dashBoardPageFullHTML);
+  initDashboard();
+});
+
+taskLI.addEventListener("click", () => {
+  renderPages(taskPageFullHTML);
+  initTasks();
+});
+calendarLI.addEventListener("click", () => {
+  renderPages(calendarPageFullHTML);
+  initCalendar();
+});
+analyticsLI.addEventListener("click", () => {
+  renderPages(analyticsPageFullHTML);
+});
+teamLI.addEventListener("click", () => {
+  renderPages(teamPageFullHTML);
+  initTeam();
+});
+
+// PAGE SWITCHER BUTTON CLICKER
 
 // console.log(window.ApexCharts);
