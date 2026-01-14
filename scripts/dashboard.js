@@ -180,7 +180,7 @@ export const dashBoardPageFullHTML = `
 </div>
 `;
 
-const previewContainer = document.querySelector(".dashboard-page");
+export const previewContainer = document.querySelector(".dashboard-page");
 
 // PROJECT TYPE CODE
 const projectsType = [
@@ -288,7 +288,7 @@ colors: [
 };
 
 // TEAM COLLABORATION
-const teamCollaborationMembers = [
+export const teamCollaborationMembers = [
 {
     memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
     memberName: "Samuel Olalekan",
@@ -342,25 +342,6 @@ teamCollaborationMembers.forEach((members) => {
 });
 document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
 }
-
-function teamMemberForTeamSection() {
-    let teamSectionHTML = "";
-  
-    teamCollaborationMembers.forEach((team) => {
-      teamSectionHTML += `
-        <div class="team-member-card">
-            <img src="${team.memberPicture}">
-            <div class="member-info">
-              <h4>${team.memberName}</h4>
-              <p>${team.title}</p>
-            </div>
-            <span class="member-status active">${team.activeness}</span>
-        </div>
-        `;
-    });
-  
-    document.querySelector(".team-member-list").innerHTML = teamSectionHTML;
-  }
   
   // PROJECT STACK TYPE FUNCTIONALITY
   const projectStackType = [

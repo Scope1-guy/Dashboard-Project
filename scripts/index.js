@@ -1,4 +1,4 @@
-import { dashBoardPageFullHTML, initDashboard } from "./dashboard.js";
+import { dashBoardPageFullHTML, initDashboard, previewContainer } from "./dashboard.js";
 import { taskPageFullHTML, initTasks } from "./task.js";
 import { calendarPageFullHTML, initCalendar } from "./calendar.js";
 import { analyticsPageFullHTML, initAnalytics } from "./analytics.js"

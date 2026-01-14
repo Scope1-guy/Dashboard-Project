@@ -1,3 +1,5 @@
+import { teamCollaborationMembers } from "./dashboard.js";
+
 export const teamPageFullHTML = `
 <div class="team-page">
 
@@ -135,6 +137,25 @@ export const teamPageFullHTML = `
 
 </div>
 `;
+
+export function teamMemberForTeamSection() {
+  let teamSectionHTML = "";
+
+  teamCollaborationMembers.forEach((team) => {
+    teamSectionHTML += `
+      <div class="team-member-card">
+          <img src="${team.memberPicture}">
+          <div class="member-info">
+            <h4>${team.memberName}</h4>
+            <p>${team.title}</p>
+          </div>
+          <span class="member-status active">${team.activeness}</span>
+      </div>
+      `;
+  });
+
+  document.querySelector(".team-member-list").innerHTML = teamSectionHTML;
+}
 
 export const initTeam = () => {
   teamMemberForTeamSection();
