@@ -1,3 +1,5 @@
+import { previewContainer } from "./dashboard.js";
+
 export const taskPageFullHTML = `
 <div class="tasks-page">
 
@@ -32,138 +34,134 @@ export const taskPageFullHTML = `
   </div>
 
   <!-- TASK GROUP -->
-  <div class="task-group">
+  <div class="task-group today-task-group">
     <h4>Today</h4>
-
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>User Authentication System Bug Fixes</h5>
-        <span class="task-tag">Website Development</span>
-      </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:50%"></span></div>
-        <small>50%</small>
-      </div>
-
-      <span class="priority high">High</span>
-      <span class="due">Today</span>
-
-      <div class="avatars">
-        <img src="https://i.pravatar.cc/32?img=12">
-        <img src="https://i.pravatar.cc/32?img=32">
-      </div>
-    </div>
-
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>Update User Profile Page UI</h5>
-        <span class="task-tag">Internal Dashboard</span>
-      </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:20%"></span></div>
-        <small>20%</small>
-      </div>
-
-      <span class="priority medium">Medium</span>
-      <span class="due">Today</span>
-
-      <div class="avatars">
-        <img src="https://i.pravatar.cc/32?img=15">
-      </div>
-    </div>
-
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>Update Create Monthly Performance Report</h5>
-        <span class="task-tag">Data Analysis</span>
-      </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:10%"></span></div>
-        <small>10%</small>
-      </div>
-
-      <span class="priority medium">Low</span>
-      <span class="due">Today</span>
-
-      <div class="avatars">
-        <img src="https://i.pravatar.cc/32?img=15">
-      </div>
-    </div>
   </div>
 
   <!-- UPCOMING -->
-  <div class="task-group">
+  <div class="task-group upcoming-task-group">
     <h4>Upcoming</h4>
-
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>Optimize SEO Settings</h5>
-        <span class="task-tag">Marketing Campaign</span>
-      </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:0%"></span></div>
-        <small>0%</small>
-      </div>
-
-      <span class="priority high">High</span>
-      <span class="due">Apr 26</span>
-
-      <div class="avatars">
-        <img src="https://i.pravatar.cc/32?img=21">
-      </div>
-    </div>
-
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>Prepare Presentation Slides</h5>
-        <span class="task-tag">Onboarding New Clients</span>
-      </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:0%"></span></div>
-        <small>0%</small>
-      </div>
-
-      <span class="priority high">High</span>
-      <span class="due">Apr 26</span>
-
-      <div class="avatars">
-        <img src="https://i.pravatar.cc/32?img=21">
-      </div>
-    </div>
-
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>Fix Dashboard Layout Issue</h5>
-        <span class="task-tag">Internal Dashboard</span>
-      </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:0%"></span></div>
-        <small>0%</small>
-      </div>
-
-      <span class="priority high">High</span>
-      <span class="due">Apr 26</span>
-
-      <div class="avatars">
-        <img src="https://i.pravatar.cc/32?img=21">
-      </div>
-    </div>
   </div>
 
 </div>
 `;
+
+
+// const progressBarNumber = document.querySelector('.progress-input');
+
+const today = new Date();
+const formattedDate = today.toLocaleDateString("en-US", {
+  weekday: "long",
+  month: "short",
+  day: "numeric",
+  year: "numeric"
+})
+
+function futureDate(daysOffset) {
+  const date = new Date();
+  date.setDate(date.getDate() + daysOffset);
+
+  return date.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    year: "numeric"
+  });
+}
+
+function todayTaskFunction() {
+const todayTaskList = [{
+  taskName: "User Authentication System Bug Fixes",
+  taskStack: "Website Development",
+  taskProgressBar: 20,
+  taskCompletionPercentage: "",
+  priorityLevel: "medium",
+  dueDate: formattedDate,
+  assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+  assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+}];
+
+let todayTaskHTML = '';
+
+todayTaskList.forEach((tsk) => {
+  todayTaskHTML += `
+    <div class="task-row">
+      <input type="checkbox">
+      <div class="task-info">
+        <h5>${tsk.taskName}</h5>
+        <span class="task-tag">${tsk.taskStack}</span>
+      </div>
+
+      <div class="task-progress">
+        <div class="progress-bar"><span style="width:${tsk.taskProgressBar}%"></span></div>
+        <select class="progress-input">
+            <option value="0">0</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="75">75</option>
+            <option value="100">100</option>
+        </select>
+      </div>
+
+      <span class="priority high">${tsk.priorityLevel}</span>
+      <span class="due">${tsk.dueDate}</span>
+
+      <div class="avatars">
+        <img src="${tsk.assignedMemberOne}">
+        <img src="${tsk.assignedMemberTwo}">
+      </div>
+    </div>
+  `
+})
+document.querySelector(".today-task-group").insertAdjacentHTML( "beforeend",todayTaskHTML);
+}
+
+function upcomingTaskFunction() {
+  const upcomingTaskList = [{
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 20,
+    taskCompletionPercentage: "",
+    priorityLevel: "medium",
+    dueDate: futureDate(10),
+    assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }];
+
+  let upcomingTaskHTML = '';
+
+  upcomingTaskList.forEach((tsk) => {
+    upcomingTaskHTML += `
+      <div class="task-row">
+        <input type="checkbox">
+        <div class="task-info">
+          <h5>${tsk.taskName}</h5>
+          <span class="task-tag">${tsk.taskStack}</span>
+        </div>
+
+        <div class="task-progress">
+          <div class="progress-bar"><span style="width:${tsk.taskProgressBar}%"></span></div>
+          <select class="progress-input">
+              <option value="0">0</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+              <option value="75">75</option>
+              <option value="100">100</option>
+          </select>
+        </div>
+
+        <span class="priority high">${tsk.priorityLevel}</span>
+        <span class="due">${tsk.dueDate}</span>
+
+        <div class="avatars">
+          <img src="${tsk.assignedMemberOne}">
+          <img src="${tsk.assignedMemberTwo}">
+        </div>
+      </div>
+    `
+  })
+  document.querySelector(".upcoming-task-group").insertAdjacentHTML( "beforeend",upcomingTaskHTML);
+}
 
 export const initTasks = () => {
     const tabs = document.querySelectorAll(".tab");
@@ -175,5 +173,8 @@ export const initTasks = () => {
       });
     });
   
+    todayTaskFunction();
+    upcomingTaskFunction();
+
     console.log("Tasks page initialized");
   };

@@ -1,3 +1,5 @@
+import { previewContainer } from "./dashboard.js";
+
 export const analyticsPageFullHTML = `
 <div class="analytics-page">
 

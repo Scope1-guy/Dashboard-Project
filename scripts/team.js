@@ -1,4 +1,4 @@
-import { teamCollaborationMembers } from "./dashboard.js";
+import { teamCollaborationMembers, previewContainer } from "./dashboard.js";
 
 export const teamPageFullHTML = `
 <div class="team-page">
@@ -9,7 +9,7 @@ export const teamPageFullHTML = `
       <h2>Team</h2>
       <p>Manage your team members and their roles</p>
     </div>
-    <button class="team-member-adder-btn">+ Add Member</button>
+    <!--<button class="team-member-adder-btn">+ Add Member</button>-->
     <dialog class="team-member-adder-popUp">
       <form>
           <input type="file" class="imageInput" accept="*image/*">

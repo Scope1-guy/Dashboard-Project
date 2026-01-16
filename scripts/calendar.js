@@ -1,3 +1,5 @@
+import { previewContainer } from "./dashboard.js";
+
 export const calendarPageFullHTML = `
 <div class="calendar-page">
 
@@ -64,6 +66,7 @@ export const calendarPageFullHTML = `
       <div class="calendar-events-header">
         <h4>Events – Apr 3</h4>
         <button class="add-event-btn">+ Add Event</button>
+        <dialog></dialog>
       </div>
 
       <div class="event-list">
