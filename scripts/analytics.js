@@ -1,4 +1,4 @@
-import { previewContainer } from "./dashboard.js";
+import { previewContainer, teamCollaborationMembers, projectsType } from "./dashboard.js";
 
 export const analyticsPageFullHTML = `
 <div class="analytics-page">
@@ -21,29 +21,6 @@ export const analyticsPageFullHTML = `
 
   <!-- TOP STATS -->
   <div class="analytics-stats">
-    <div class="stat-card green">
-      <p>Total Tasks</p>
-      <h3>128</h3>
-      <span>↑ 12% from last week</span>
-    </div>
-
-    <div class="stat-card">
-      <p>Completed</p>
-      <h3>86</h3>
-      <span>↑ 8% improvement</span>
-    </div>
-
-    <div class="stat-card">
-      <p>In Progress</p>
-      <h3>32</h3>
-      <span>Stable</span>
-    </div>
-
-    <div class="stat-card">
-      <p>Overdue</p>
-      <h3>10</h3>
-      <span class="danger">Needs attention</span>
-    </div>
   </div>
 
   <!-- MAIN GRID -->
@@ -51,14 +28,14 @@ export const analyticsPageFullHTML = `
 
     <!-- LEFT -->
     <div class="analytics-left">
-      <div class="card">
+      <div class="chart-card">
         <h4>Task Completion Trend</h4>
-        <div id="completionChart" class="chart-box"></div>
+        <canvas id="taskCompletionChart"></canvas>
       </div>
 
-      <div class="card">
+      <div class="chart-card">
         <h4>Productivity Over Time</h4>
-        <div id="productivityChart" class="chart-box"></div>
+        <canvas id="productivityChart"></canvas>
       </div>
     </div>
 
@@ -106,25 +83,7 @@ export const analyticsPageFullHTML = `
             <th>Efficiency</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Samuel Olalekan</td>
-            <td>24</td>
-            <td>20</td>
-            <td>83%</td>
-          </tr>
-          <tr>
-            <td>Edward Noah</td>
-            <td>18</td>
-            <td>14</td>
-            <td>77%</td>
-          </tr>
-          <tr>
-            <td>Oluwasola O.</td>
-            <td>15</td>
-            <td>11</td>
-            <td>73%</td>
-          </tr>
+        <tbody class="team-performance-container">
         </tbody>
       </table>
     </div>
@@ -133,7 +92,156 @@ export const analyticsPageFullHTML = `
 </div>
 `;
 
+function taskAnalyticsFunction() {
+  let taskAnalytics = "";
+
+  projectsType.forEach((analyticsTaskInfo) => {
+    taskAnalytics += `
+      <div class="stat-card">
+        <p>${analyticsTaskInfo.taskAnalyticTitle}</p>
+        <h3>${analyticsTaskInfo.number}</h3>
+        <span>${analyticsTaskInfo.incrementLevel}</span>
+      </div>
+    `;
+  })
+  console.log(taskAnalytics);
+  document.querySelector('.analytics-stats').innerHTML = taskAnalytics;
+}
+
+const teamPerformanceInfo = [{
+  tasks: 24,
+  completedTask: 20,
+  efficiency: 83
+}, {
+  tasks: 18,
+  completedTask: 14,
+  efficiency: 77
+},{
+  tasks: 15,
+  completedTask: 11,
+  efficiency: 73
+}]
+function teamPerformance() {
+  let teamPerformanceList = "";
+
+  teamPerformanceInfo.forEach((taskInfos) => {
+    teamCollaborationMembers.forEach((names) => {
+      teamPerformanceList += ` 
+        <tr>
+          <td>${names.memberName}</td>
+          <td>${taskInfos.tasks}</td>
+          <td>${taskInfos.completedTask}</td>
+          <td>${taskInfos.efficiency}%</td>
+        </tr>
+      `
+    })
+
+    }
+  )
+  console.log(teamPerformanceList);
+  document.querySelector('.team-performance-container').innerHTML = teamPerformanceList;
+}
+
+;
 export const initAnalytics = () => {
     // Example: ApexCharts or any chart library init
+          /* ================================
+        Task Completion Trend Chart
+      ================================ */
+
+      const taskCompletionCtx = document
+      .getElementById("taskCompletionChart")
+      .getContext("2d");
+
+      new Chart(taskCompletionCtx, {
+      type: "line",
+      data: {
+        labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+        datasets: [
+          {
+            label: "Tasks Completed",
+            data: [18, 22, 30, 27, 38],
+            borderColor: "#4CAF50",
+            backgroundColor: "rgba(76, 175, 80, 0.15)",
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#4CAF50"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            grid: { color: "#eee" }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      }
+      });
+
+      /* ================================
+      Productivity Over Time Chart
+      ================================ */
+      taskAnalyticsFunction();
+
+      const productivityCtx = document
+      .getElementById("productivityChart")
+      .getContext("2d");
+
+      new Chart(productivityCtx, {
+      type: "line",
+      data: {
+        labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+        datasets: [
+          {
+            label: "Productivity %",
+            data: [62, 71, 76, 78],
+            borderColor: "#2E7D32",
+            backgroundColor: "rgba(46, 125, 50, 0.12)",
+            fill: true,
+            tension: 0.4,
+            pointRadius: 5,
+            pointBackgroundColor: "#2E7D32"
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return context.raw + "% productivity";
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            min: 10,
+            max: 100,
+            ticks: {
+              callback: value => value + "%"
+            },
+            grid: { color: "#eee" }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      }
+      });
+
+      teamPerformance()
+
     console.log("Analytics page initialized");
   };

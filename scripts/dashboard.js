@@ -183,30 +183,38 @@ export const dashBoardPageFullHTML = `
 export const previewContainer = document.querySelector(".dashboard-page");
 
 // PROJECT TYPE CODE
-const projectsType = [
+export const projectsType = [
     {
-      title: "Total Projects",
-      action: () => {},
-      number: 24,
-      increment: "Increased from last month",
+        taskAnalyticTitle: "Total Task",
+        title: "Total Projects",
+        action: () => {},
+        number: 2,
+        increment: "Increased from last month",
+        incrementLevel: "↑ 12% from last week"
     },
     {
-      title: "Ended Projects",
-      action: () => {},
-      number: 10,
-      increment: "Increased from last month",
+        taskAnalyticTitle: "Completed",
+        title: "Ended Projects",
+        action: () => {},
+        number: 0,
+        increment: "Increased from last month",
+        incrementLevel: "↑ 8% improvement"
     },
     {
-      title: "Running Projects",
-      action: () => {},
-      number: 12,
-      increment: "Increased from last month",
+        taskAnalyticTitle: "In Progress",
+        title: "Running Projects",
+        action: () => {},
+        number: 1,
+        increment: "Increased from last month",
+        incrementLevel: "Stable"
     },
     {
-      title: "Pending Projects",
-      action: () => {},
-      number: 2,
-      increment: "On Discuss",
+        taskAnalyticTitle: "Overdue",
+        title: "Pending Projects",
+        action: () => {},
+        number: 1,
+        increment: "On Discuss",
+        incrementLevel: "Needs attention"
     },
 ];
 
@@ -471,7 +479,7 @@ export const initDashboard = () => {
     const ARC_LENGTH = 314;
     let progressNumberInput =
       previewContainer.querySelector(".percentage-number");
-    const progressNumber = 81;
+    const progressNumber = 45;
   
     progressNumberInput.textContent = `${progressNumber}%`;
   

@@ -13,6 +13,7 @@ export const taskPageFullHTML = `
     <div class="tasks-header-actions">
       <button class="primary-btn">+ Add Task</button>
       <button class="icon-btn">•••</button>
+      <dialog class="task-form"></dialog>
     </div>
   </div>
 
@@ -46,9 +47,6 @@ export const taskPageFullHTML = `
 </div>
 `;
 
-
-// const progressBarNumber = document.querySelector('.progress-input');
-
 const today = new Date();
 const formattedDate = today.toLocaleDateString("en-US", {
   weekday: "long",
@@ -56,6 +54,8 @@ const formattedDate = today.toLocaleDateString("en-US", {
   day: "numeric",
   year: "numeric"
 })
+
+
 
 function futureDate(daysOffset) {
   const date = new Date();
@@ -69,11 +69,13 @@ function futureDate(daysOffset) {
   });
 }
 
+const progressValue = previewContainer.querySelector('.progress-input');
+// console.log(progressValue.value)
 function todayTaskFunction() {
 const todayTaskList = [{
   taskName: "User Authentication System Bug Fixes",
   taskStack: "Website Development",
-  taskProgressBar: 20,
+  taskProgressBar: 80,
   taskCompletionPercentage: "",
   priorityLevel: "medium",
   dueDate: formattedDate,
@@ -165,14 +167,19 @@ function upcomingTaskFunction() {
 
 export const initTasks = () => {
     const tabs = document.querySelectorAll(".tab");
-  
+    const addTask = document.querySelector('.primary-btn');
+    const taskDialog = document.querySelector(".task-form");
+
+    addTask.addEventListener('click', () => {
+      taskDialog.showModal();
+    })
+    
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         tabs.forEach((t) => t.classList.remove("active"));
         tab.classList.add("active");
       });
     });
-  
     todayTaskFunction();
     upcomingTaskFunction();
 
