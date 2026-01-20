@@ -115,12 +115,12 @@ export const teamPageFullHTML = `
 
       <div class="summary-item">
         <span>Active</span>
-        <strong>3</strong>
+        <strong class="active-member-atm">3</strong>
       </div>
 
       <div class="summary-item">
         <span>Pending</span>
-        <strong>1</strong>
+        <strong class="pending-or-inactive-member">1</strong>
       </div>
 
       <hr />
@@ -159,6 +159,11 @@ export function teamMemberForTeamSection() {
 
 export const initTeam = () => {
   teamMemberForTeamSection();
-  previewContainer.querySelector(".member-item-list").textContent =
-    teamCollaborationMembers.length;
+  const activenessCountActive = teamCollaborationMembers.filter(user => user.activeness === "Active").length
+  const activenessCountInactive = teamCollaborationMembers.filter(user => user.activeness === "Inactive").length
+
+  previewContainer.querySelector('.active-member-atm').textContent = activenessCountActive;
+  previewContainer.querySelector('.pending-or-inactive-member').textContent = activenessCountInactive;
+  
+  previewContainer.querySelector(".member-item-list").textContent = teamCollaborationMembers.length;
 };

@@ -1,0 +1,97 @@
+.logout-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logout-card {
+    background: #fff;
+    padding: 40px;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 18px;
+    text-align: center;
+  }
+  
+  .logout-icon {
+    width: 60px;
+    height: 60px;
+    background: #f1f5ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  
+  .logout-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .logout-desc {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .user-session {
+    background: #f9fafc;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  .user-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .user-info img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+  }
+  
+  .user-info h4 {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .user-info span {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  .logout-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .logout-actions button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background: #eaeaea;
+  }
+  
+  .btn-danger {
+    background: #e53935;
+    color: #fff;
+  }
+  
+  .security-note {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #888;
+  }

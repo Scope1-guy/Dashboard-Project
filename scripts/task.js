@@ -56,7 +56,6 @@ const formattedDate = today.toLocaleDateString("en-US", {
 })
 
 
-
 function futureDate(daysOffset) {
   const date = new Date();
   date.setDate(date.getDate() + daysOffset);
@@ -69,64 +68,121 @@ function futureDate(daysOffset) {
   });
 }
 
-const progressValue = previewContainer.querySelector('.progress-input');
-// console.log(progressValue.value)
 function todayTaskFunction() {
-const todayTaskList = [{
-  taskName: "User Authentication System Bug Fixes",
-  taskStack: "Website Development",
-  taskProgressBar: 80,
-  taskCompletionPercentage: "",
-  priorityLevel: "medium",
-  dueDate: formattedDate,
-  assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
-  assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
-}];
 
-let todayTaskHTML = '';
+  // const progressBar = document.querySelector('.progress-bar').style.width;
+  
+  // let priorityLevel = progressBar >= 0 && progressBar < 30 ? "low" : progressBar >= 30 && progressBar < 70  ? "medium" : "high"; 
 
-todayTaskList.forEach((tsk) => {
-  todayTaskHTML += `
-    <div class="task-row">
-      <input type="checkbox">
-      <div class="task-info">
-        <h5>${tsk.taskName}</h5>
-        <span class="task-tag">${tsk.taskStack}</span>
+  const todayTaskList = [{
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 80,
+    taskCompletionPercentage: "",
+    priorityLevel: "medium",
+    dueDate: formattedDate,
+    assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }, {
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 80,
+    taskCompletionPercentage: "",
+    priorityLevel: "medium",
+    dueDate: formattedDate,
+    assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }, {
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 80,
+    taskCompletionPercentage: "",
+    priorityLevel: "medium",
+    dueDate: formattedDate,
+    assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }, {
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 80,
+    taskCompletionPercentage: "",
+    priorityLevel: "medium",
+    dueDate: formattedDate,
+    assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }];
+
+  let todayTaskHTML = '';
+
+  todayTaskList.forEach((tsk) => {
+    todayTaskHTML += `
+      <div class="task-row">
+        <input type="checkbox">
+        <div class="task-info">
+          <h5>${tsk.taskName}</h5>
+          <span class="task-tag">${tsk.taskStack}</span>
+        </div>
+
+        <div class="task-progress">
+          <div class="progress-bar"><span style="width:${tsk.taskProgressBar}%"></span></div>
+          <!--
+            <select class="progress-input-today">
+                <option value="0">0</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </select>
+          -->
+        </div>
+
+        <span class="priority high">${tsk.priorityLevel}</span>
+        <span class="due">${tsk.dueDate}</span>
+
+        <div class="avatars">
+          <img src="${tsk.assignedMemberOne}">
+          <img src="${tsk.assignedMemberTwo}">
+        </div>
       </div>
-
-      <div class="task-progress">
-        <div class="progress-bar"><span style="width:${tsk.taskProgressBar}%"></span></div>
-        <select class="progress-input">
-            <option value="0">0</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="75">75</option>
-            <option value="100">100</option>
-        </select>
-      </div>
-
-      <span class="priority high">${tsk.priorityLevel}</span>
-      <span class="due">${tsk.dueDate}</span>
-
-      <div class="avatars">
-        <img src="${tsk.assignedMemberOne}">
-        <img src="${tsk.assignedMemberTwo}">
-      </div>
-    </div>
-  `
-})
-document.querySelector(".today-task-group").insertAdjacentHTML( "beforeend",todayTaskHTML);
+    `
+  })
+  document.querySelector(".today-task-group").insertAdjacentHTML( "beforeend",todayTaskHTML);
 }
 
 function upcomingTaskFunction() {
+
+  // const progressBar = document.querySelector('.progress-bar').style.width;
+
+  // let progressLevelText = document.querySelector('.priority-level');
+  // // console.log(progressLevelText)
+  
+  // let priorityLevel = progressBar >= 0 && progressBar < 30 ? progressLevelText.textContent = "low" : progressBar >= 30 && progressBar < 70  ? progressLevelText.textContent = "medium" : "high";
+
   const upcomingTaskList = [{
     taskName: "User Authentication System Bug Fixes",
     taskStack: "Website Development",
-    taskProgressBar: 20,
-    taskCompletionPercentage: "",
+    taskProgressBar: 90,
+    taskCompletionLevel: "",
     priorityLevel: "medium",
     dueDate: futureDate(10),
     assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }, {
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 90,
+    taskCompletionLevel: "",
+    priorityLevel: "medium",
+    dueDate: futureDate(10),
+    assignedMemberOne: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+    assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
+  }, {
+    taskName: "User Authentication System Bug Fixes",
+    taskStack: "Website Development",
+    taskProgressBar: 90,
+    taskCompletionLevel: "",
+    priorityLevel: "medium",
+    dueDate: futureDate(10),
     assignedMemberTwo: "https://i.pravatar.cc/32?img=32"
   }];
 
@@ -143,13 +199,15 @@ function upcomingTaskFunction() {
 
         <div class="task-progress">
           <div class="progress-bar"><span style="width:${tsk.taskProgressBar}%"></span></div>
-          <select class="progress-input">
-              <option value="0">0</option>
-              <option value="25">25</option>
-              <option value="50">50</option>
-              <option value="75">75</option>
-              <option value="100">100</option>
-          </select>
+          <!--
+            <select class="progress-input">
+                <option value="0">0</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </select>
+          -->
         </div>
 
         <span class="priority high">${tsk.priorityLevel}</span>

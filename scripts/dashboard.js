@@ -119,6 +119,16 @@ export const dashBoardPageFullHTML = `
                             </div>
                         </div>
 
+                        <div class="duo-form-for-flex">
+                            <div>
+                                <label>Level Completion</label> <br>
+                                <select class="team-activeness">
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <button type="submit" class="team-adder-submit">Submit</button>
                     </form>
                 </dialog>
@@ -442,6 +452,7 @@ export const initDashboard = () => {
     const roleAppliedFor = previewContainer.querySelector(".role-input");
     const roleAppliedCompletion =
       previewContainer.querySelector(".role-completion");
+    const memberActiveness = previewContainer.querySelector('.team-activeness')
   
     teamMemberAdderBtn.addEventListener("click", () => {
       addMemberFormBox.showModal();
@@ -466,6 +477,8 @@ export const initDashboard = () => {
         roleProgress: roleAppliedCompletion.value,
         color: completionChecker,
         border: "rgba(66, 128, 66, 0.27)",
+        title: roleAppliedFor.value,
+        activeness: memberActiveness.value,
       };
   
       teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
@@ -479,7 +492,7 @@ export const initDashboard = () => {
     const ARC_LENGTH = 314;
     let progressNumberInput =
       previewContainer.querySelector(".percentage-number");
-    const progressNumber = 45;
+    const progressNumber = 78;
   
     progressNumberInput.textContent = `${progressNumber}%`;
   
