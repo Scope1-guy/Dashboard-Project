@@ -1,3 +1,5 @@
+import { account1, account2, account3, accounts, currentAccount} from "./index.js";
+
 export const dashBoardPageFullHTML = `
 <div class="db-plus-tsk">
     <div class="db-text">
