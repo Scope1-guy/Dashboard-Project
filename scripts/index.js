@@ -27,20 +27,472 @@ export const account1 = {
   email: "the.guyyy1203@gmail.com",
   password: "Ayanfe1211@",
   accountName: "Samuel Olalekan",
-  userProjectProgress: 78
+  dashboard: {
+    userProjectProgress: 78,
+    projectsType: [
+        {
+            taskAnalyticTitle: "Total Task",
+            title: "Total Projects",
+            action: () => {},
+            number: 2,
+            increment: "Increased from last month",
+            incrementLevel: "↑ 12% from last week"
+        },
+        {
+            taskAnalyticTitle: "Completed",
+            title: "Ended Projects",
+            action: () => {},
+            number: 0,
+            increment: "Increased from last month",
+            incrementLevel: "↑ 8% improvement"
+        },
+        {
+            taskAnalyticTitle: "In Progress",
+            title: "Running Projects",
+            action: () => {},
+            number: 1,
+            increment: "Increased from last month",
+            incrementLevel: "Stable"
+        },
+        {
+            taskAnalyticTitle: "Overdue",
+            title: "Pending Projects",
+            action: () => {},
+            number: 1,
+            increment: "On Discuss",
+            incrementLevel: "Needs attention"
+        },
+    ],
+    options: {
+      chart: {
+          type: "bar",
+          height: 200,
+          toolbar: { show: false },
+      },
+      series: [
+          {
+          data: [30, 50, 40, 70, 60, 45, 35],
+          },
+      ],
+      plotOptions: {
+          bar: {
+          columnWidth: "60%",
+          borderRadius: 10,
+          distributed: true,
+          },
+      },
+      fill: {
+          type: ["pattern", "solid"],
+          pattern: {
+          style: ["slantedLines"],
+          width: 4,
+          height: 6,
+          },
+      },
+      
+      grid: {
+          show: false,
+          padding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          },
+      },
+      xaxis: {
+          categories: ["S", "M", "T", "W", "T", "F", "S"],
+          labels: { show: false },
+          axisBorder: { show: false },
+          axisTicks: { show: false },
+          crosshairs: { show: false },
+      },
+      yaxis: { show: false },
+      legend: { show: false },
+      dataLabels: { enabled: false },
+      colors: [
+          "#d1d5db",
+          "#16a34a",
+          "#86efac",
+          "#166534",
+          "#22c55e",
+          "#d1d5db",
+          "#d1d5db",
+      ],
+    },
+    teamCollaborationMembers: [
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Samuel Olalekan",
+          workingOn: "Github Project Repository",
+          roleProgress: "Completed",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(0, 78, 0)",
+          border: "rgba(66, 128, 66, 0.27)",
+      },
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Edward Noah",
+          workingOn: "Integrate User Authentication System",
+          roleProgress: "InProgress",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(241, 194, 92)",
+          border: "rgb(243, 209, 136, 0.27)",
+      },
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Oluwasola Oluwakemi",
+          workingOn: "Develop Search and Filter Functionality",
+          roleProgress: "Pending",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(255, 0, 119)",
+          border: "rgb(245, 188, 215, 0.27)",
+      },
+    ],
+    projectStackType: [
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Develop API Endpoints",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Onboarding Flow",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Build Dashboard",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Optimize Page Load",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Cross-Browser Testing",
+        dueDate: "Nov 26, 2004",
+      },
+    ]
+  }
 };
 export const account2 = {
   email: "ogunbanwosaheedeniola74@gmail.com",
   password: "Scope0932#",
   accountName: "Saheed Ogunbanwo",
-  userProjectProgress: 48
+  dashboard: {
+    userProjectProgress: 78,
+    projectsType: [
+        {
+            taskAnalyticTitle: "Total Task",
+            title: "Total Projects",
+            action: () => {},
+            number: 2,
+            increment: "Increased from last month",
+            incrementLevel: "↑ 12% from last week"
+        },
+        {
+            taskAnalyticTitle: "Completed",
+            title: "Ended Projects",
+            action: () => {},
+            number: 0,
+            increment: "Increased from last month",
+            incrementLevel: "↑ 8% improvement"
+        },
+        {
+            taskAnalyticTitle: "In Progress",
+            title: "Running Projects",
+            action: () => {},
+            number: 1,
+            increment: "Increased from last month",
+            incrementLevel: "Stable"
+        },
+        {
+            taskAnalyticTitle: "Overdue",
+            title: "Pending Projects",
+            action: () => {},
+            number: 1,
+            increment: "On Discuss",
+            incrementLevel: "Needs attention"
+        },
+    ],
+    options: {
+      chart: {
+          type: "bar",
+          height: 200,
+          toolbar: { show: false },
+      },
+      series: [
+          {
+          data: [30, 50, 40, 70, 60, 45, 35],
+          },
+      ],
+      plotOptions: {
+          bar: {
+          columnWidth: "60%",
+          borderRadius: 10,
+          distributed: true,
+          },
+      },
+      fill: {
+          type: ["pattern", "solid"],
+          pattern: {
+          style: ["slantedLines"],
+          width: 4,
+          height: 6,
+          },
+      },
+      
+      grid: {
+          show: false,
+          padding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          },
+      },
+      xaxis: {
+          categories: ["S", "M", "T", "W", "T", "F", "S"],
+          labels: { show: false },
+          axisBorder: { show: false },
+          axisTicks: { show: false },
+          crosshairs: { show: false },
+      },
+      yaxis: { show: false },
+      legend: { show: false },
+      dataLabels: { enabled: false },
+      colors: [
+          "#d1d5db",
+          "#16a34a",
+          "#86efac",
+          "#166534",
+          "#22c55e",
+          "#d1d5db",
+          "#d1d5db",
+      ],
+    },
+    teamCollaborationMembers: [
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Samuel Olalekan",
+          workingOn: "Github Project Repository",
+          roleProgress: "Completed",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(0, 78, 0)",
+          border: "rgba(66, 128, 66, 0.27)",
+      },
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Edward Noah",
+          workingOn: "Integrate User Authentication System",
+          roleProgress: "InProgress",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(241, 194, 92)",
+          border: "rgb(243, 209, 136, 0.27)",
+      },
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Oluwasola Oluwakemi",
+          workingOn: "Develop Search and Filter Functionality",
+          roleProgress: "Pending",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(255, 0, 119)",
+          border: "rgb(245, 188, 215, 0.27)",
+      },
+    ],
+    projectStackType: [
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Develop API Endpoints",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Onboarding Flow",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Build Dashboard",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Optimize Page Load",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Cross-Browser Testing",
+        dueDate: "Nov 26, 2004",
+      },
+    ]
+  }
 };
 export const account3 = {
   email: "scope9750@gmail.com",
   password: "scope12@",
   accountName: "Beatrice Oluwakemi",
-  userProjectProgress: 70
-  
+  dashboard: {
+    userProjectProgress: 78,
+    projectsType: [
+        {
+            taskAnalyticTitle: "Total Task",
+            title: "Total Projects",
+            action: () => {},
+            number: 2,
+            increment: "Increased from last month",
+            incrementLevel: "↑ 12% from last week"
+        },
+        {
+            taskAnalyticTitle: "Completed",
+            title: "Ended Projects",
+            action: () => {},
+            number: 0,
+            increment: "Increased from last month",
+            incrementLevel: "↑ 8% improvement"
+        },
+        {
+            taskAnalyticTitle: "In Progress",
+            title: "Running Projects",
+            action: () => {},
+            number: 1,
+            increment: "Increased from last month",
+            incrementLevel: "Stable"
+        },
+        {
+            taskAnalyticTitle: "Overdue",
+            title: "Pending Projects",
+            action: () => {},
+            number: 1,
+            increment: "On Discuss",
+            incrementLevel: "Needs attention"
+        },
+    ],
+    options: {
+      chart: {
+          type: "bar",
+          height: 200,
+          toolbar: { show: false },
+      },
+      series: [
+          {
+          data: [30, 50, 40, 70, 60, 45, 35],
+          },
+      ],
+      plotOptions: {
+          bar: {
+          columnWidth: "60%",
+          borderRadius: 10,
+          distributed: true,
+          },
+      },
+      fill: {
+          type: ["pattern", "solid"],
+          pattern: {
+          style: ["slantedLines"],
+          width: 4,
+          height: 6,
+          },
+      },
+      
+      grid: {
+          show: false,
+          padding: {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          },
+      },
+      xaxis: {
+          categories: ["S", "M", "T", "W", "T", "F", "S"],
+          labels: { show: false },
+          axisBorder: { show: false },
+          axisTicks: { show: false },
+          crosshairs: { show: false },
+      },
+      yaxis: { show: false },
+      legend: { show: false },
+      dataLabels: { enabled: false },
+      colors: [
+          "#d1d5db",
+          "#16a34a",
+          "#86efac",
+          "#166534",
+          "#22c55e",
+          "#d1d5db",
+          "#d1d5db",
+      ],
+    },
+    teamCollaborationMembers: [
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Samuel Olalekan",
+          workingOn: "Github Project Repository",
+          roleProgress: "Completed",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(0, 78, 0)",
+          border: "rgba(66, 128, 66, 0.27)",
+      },
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Edward Noah",
+          workingOn: "Integrate User Authentication System",
+          roleProgress: "InProgress",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(241, 194, 92)",
+          border: "rgb(243, 209, 136, 0.27)",
+      },
+      {
+          memberPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+          memberName: "Oluwasola Oluwakemi",
+          workingOn: "Develop Search and Filter Functionality",
+          roleProgress: "Pending",
+          title: "Frontend",
+          activeness: "Active",
+          color: "rgb(255, 0, 119)",
+          border: "rgb(245, 188, 215, 0.27)",
+      },
+    ],
+    projectStackType: [
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Develop API Endpoints",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Onboarding Flow",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Build Dashboard",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Optimize Page Load",
+        dueDate: "Nov 26, 2004",
+      },
+      {
+        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackName: "Cross-Browser Testing",
+        dueDate: "Nov 26, 2004",
+      },
+    ]
+  }
 };
 
 export const accounts = [account1, account2, account3]
@@ -81,11 +533,11 @@ const initLogin = () => {
   pageBody.style.display = "flex";
   pageAccountName.textContent = currentAccount.accountName;
   pageAccountEmail.textContent = currentAccount.email
-
-  console.log("Login Successful", currentAccount.email);
   });
 }
 initLogin();
+
+console.log("Login Successful", currentAccount);
 
 
 // RENDERING OF THE DASHBOARD

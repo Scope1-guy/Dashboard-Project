@@ -1,4 +1,5 @@
 import { previewContainer, teamCollaborationMembers, projectsType } from "./dashboard.js";
+import { account1, account2, account3, accounts, currentAccount} from "./index.js";
 
 export const analyticsPageFullHTML = `
 <div class="analytics-page">
