@@ -1,4 +1,5 @@
 import { teamCollaborationMembers, previewContainer } from "./dashboard.js";
+import { currentAccount } from "./index.js";
 
 export const teamPageFullHTML = `
 <div class="team-page">
@@ -110,17 +111,17 @@ export const teamPageFullHTML = `
 
       <div class="summary-item">
         <span>Total Members</span>
-        <strong class="member-item-list">4</strong>
+        <strong class="member-item-list"></strong>
       </div>
 
       <div class="summary-item">
         <span>Active</span>
-        <strong class="active-member-atm">3</strong>
+        <strong class="active-member-atm"></strong>
       </div>
 
       <div class="summary-item">
-        <span>Pending</span>
-        <strong class="pending-or-inactive-member">1</strong>
+        <span>InActive</span>
+        <strong class="pending-or-inactive-member"></strong>
       </div>
 
       <hr />
@@ -138,32 +139,55 @@ export const teamPageFullHTML = `
 </div>
 `;
 
-export function teamMemberForTeamSection() {
-  let teamSectionHTML = "";
+// export function teamMemberForTeamSection() {
+//   let teamSectionHTML = "";
 
-  teamCollaborationMembers.forEach((team) => {
-    teamSectionHTML += `
-      <div class="team-member-card">
-          <img src="${team.memberPicture}">
-          <div class="member-info">
-            <h4>${team.memberName}</h4>
-            <p>${team.title}</p>
-          </div>
-          <span class="member-status active">${team.activeness}</span>
-      </div>
-      `;
-  });
+//   teamCollaborationMembers.forEach((team) => {
+//     teamSectionHTML += `
+//       <div class="team-member-card">
+//           <img src="${team.memberPicture}">
+//           <div class="member-info">
+//             <h4>${team.memberName}</h4>
+//             <p>${team.title}</p>
+//           </div>
+//           <span class="member-status active">${team.activeness}</span>
+//       </div>
+//       `;
+//   });
 
-  document.querySelector(".team-member-list").innerHTML = teamSectionHTML;
-}
+//   document.querySelector(".team-member-list").innerHTML = teamSectionHTML;
+// }
 
 export const initTeam = () => {
-  teamMemberForTeamSection();
-  const activenessCountActive = teamCollaborationMembers.filter(user => user.activeness === "Active").length
-  const activenessCountInactive = teamCollaborationMembers.filter(user => user.activeness === "Inactive").length
+      if (!currentAccount) return;
+  
+      const dashboard = currentAccount.dashboard;
+      const teamPage = currentAccount.teamPage;
+  function teamMemberForTeamSection(teamPageForMembers) {
+    let teamSectionHTML = "";
+  
+    teamPageForMembers.forEach((team) => {
+      teamSectionHTML += `
+        <div class="team-member-card">
+            <img src="${team.memberPicture}">
+            <div class="member-info">
+              <h4>${team.memberName}</h4>
+              <p>${team.title}</p>
+            </div>
+            <span class="member-status active">${team.activeness}</span>
+        </div>
+        `;
+    });
+  
+    document.querySelector(".team-member-list").innerHTML = teamSectionHTML;
+  }
+  
+  teamMemberForTeamSection(dashboard.teamCollaborationMembers);
+  const activenessCountActive = dashboard.teamCollaborationMembers.filter(user => user.activeness === "Active").length
+  const activenessCountInactive = dashboard.teamCollaborationMembers.filter(user => user.activeness === "Inactive").length
 
   previewContainer.querySelector('.active-member-atm').textContent = activenessCountActive;
   previewContainer.querySelector('.pending-or-inactive-member').textContent = activenessCountInactive;
   
-  previewContainer.querySelector(".member-item-list").textContent = teamCollaborationMembers.length;
+  previewContainer.querySelector(".member-item-list").textContent = dashboard.teamCollaborationMembers.length;
 };

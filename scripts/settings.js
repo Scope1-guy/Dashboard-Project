@@ -1,3 +1,5 @@
+import { account1, account2, account3, accounts, currentAccount} from "./index.js";
+
 export const settingsPageFullHTML = `
     <div class="settings-page">
 
@@ -10,12 +12,12 @@ export const settingsPageFullHTML = `
 
         <div class="form-group">
         <label>Full Name</label>
-        <input type="text" placeholder="Samuel Olalekan">
+        <input type="text" placeholder="">
         </div>
 
         <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="samuel@email.com">
+        <input type="email" placeholder="">
         </div>
 
         <div class="form-group">
@@ -63,6 +65,9 @@ export const settingsPageFullHTML = `
 `;
 
 export const initSetting = () => {
+  if (!currentAccount) return;
+
+
     const darkToggle = document.getElementById('darkModeToggle');
 
     darkToggle.addEventListener('change', () => {

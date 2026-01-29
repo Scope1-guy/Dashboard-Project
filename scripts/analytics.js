@@ -93,22 +93,6 @@ export const analyticsPageFullHTML = `
 </div>
 `;
 
-function taskAnalyticsFunction() {
-  let taskAnalytics = "";
-
-  projectsType.forEach((analyticsTaskInfo) => {
-    taskAnalytics += `
-      <div class="stat-card">
-        <p>${analyticsTaskInfo.taskAnalyticTitle}</p>
-        <h3>${analyticsTaskInfo.number}</h3>
-        <span>${analyticsTaskInfo.incrementLevel}</span>
-      </div>
-    `;
-  })
-  console.log(taskAnalytics);
-  document.querySelector('.analytics-stats').innerHTML = taskAnalytics;
-}
-
 const teamPerformanceInfo = [{
   tasks: 24,
   completedTask: 20,
@@ -145,14 +129,45 @@ function teamPerformance() {
 
 ;
 export const initAnalytics = () => {
+
+  if (!currentAccount) return;
+  
+  const dashboard = currentAccount.dashboard;
+  const teamPage = currentAccount.teamPage;
+  const analytics = currentAccount.analytics
+
+
+  function taskAnalyticsFunction(projectsType) {
+    let taskAnalytics = "";
+  
+    dashboard.projectsType.forEach((analyticsTaskInfo) => {
+      taskAnalytics += `
+        <div class="stat-card">
+          <p>${analyticsTaskInfo.taskAnalyticTitle}</p>
+          <h3>${analyticsTaskInfo.weekly_task}</h3>
+          <span>${analyticsTaskInfo.incrementLevel}</span>
+        </div>
+      `;
+    })
+    console.log(taskAnalytics);
+    document.querySelector('.analytics-stats').innerHTML = taskAnalytics;
+  }
+
+  taskAnalyticsFunction(dashboard.projectsType)
+
     // Example: ApexCharts or any chart library init
           /* ================================
         Task Completion Trend Chart
       ================================ */
 
+      // const taskCompletionCtx = document
+      // .getElementById("taskCompletionChart")
+      // .getContext("2d");
+
       const taskCompletionCtx = document
       .getElementById("taskCompletionChart")
-      .getContext("2d");
+      .getContext("2d")
+
 
       new Chart(taskCompletionCtx, {
       type: "line",

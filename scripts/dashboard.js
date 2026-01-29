@@ -1,4 +1,4 @@
-import { account1, account2, account3, accounts, currentAccount} from "./index.js";
+import { currentAccount } from "./index.js";
 
 
 export const dashBoardPageFullHTML = `
@@ -231,83 +231,6 @@ export const projectsType = [
     },
 ];
 
-// let projectHTML = "";
-
-// projectsType.forEach((project) => {
-// projectHTML += `
-//         <div class="project-div">
-//             <div class="project-type">
-//                 <h3>${project.title}</h3>
-//                 <div class="project-arrow"></div>
-//             </div>
-
-//             <div class="project-number">${project.number}</div>
-
-//             <div class="project-views">
-//                 <p>${project.increment}</p>
-//             </div>
-//         </div>
-//     `;
-// });
-  
-  // PROJECT ANALYTICS
-// const options = {
-// chart: {
-//     type: "bar",
-//     height: 200,
-//     toolbar: { show: false },
-// },
-// series: [
-//     {
-//     data: [30, 50, 40, 70, 60, 45, 35],
-//     },
-// ],
-// plotOptions: {
-//     bar: {
-//     columnWidth: "60%",
-//     borderRadius: 10,
-//     distributed: true,
-//     },
-// },
-// fill: {
-//     type: ["pattern", "solid"],
-//     pattern: {
-//     style: ["slantedLines"],
-//     width: 4,
-//     height: 6,
-//     },
-// },
-
-// grid: {
-//     show: false,
-//     padding: {
-//     left: 0,
-//     right: 0,
-//     top: 0,
-//     bottom: 0,
-//     },
-// },
-// xaxis: {
-//     categories: ["S", "M", "T", "W", "T", "F", "S"],
-//     labels: { show: false },
-//     axisBorder: { show: false },
-//     axisTicks: { show: false },
-//     crosshairs: { show: false },
-// },
-// yaxis: { show: false },
-// legend: { show: false },
-// dataLabels: { enabled: false },
-// colors: [
-//     "#d1d5db",
-//     "#16a34a",
-//     "#86efac",
-//     "#166534",
-//     "#22c55e",
-//     "#d1d5db",
-//     "#d1d5db",
-// ],
-// };
-
 // TEAM COLLABORATION
 export const teamCollaborationMembers = [
 {
@@ -341,28 +264,6 @@ export const teamCollaborationMembers = [
     border: "rgb(245, 188, 215, 0.27)",
 },
 ];
-
-// function teamMemberCollaboration(teamMembers) {
-// let membersCollaborationHTML = "";
-
-// teamMembers.forEach((members) => {
-//     membersCollaborationHTML += `
-//     <div class="team-p-box">
-//         <div class="team-member-dp">
-//             <img class="member-dp-img" src="${members.memberPicture}">
-//         </div>
-//         <div class="team-member-info">
-//             <h5>${members.memberName}</h5>
-//             <div class="team-member-info-role">
-//                 <p>Working on <b>${members.workingOn}</b></p>
-//                 <button class="team-member-role-progress" style="background-color: ${members.border}; color: ${members.color}; border: 1px solid ${members.color};">${members.roleProgress}</button>
-//             </div>
-//         </div>
-//     </div>
-//     `;
-// });
-// document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
-// }
   
   // PROJECT STACK TYPE FUNCTIONALITY
   const projectStackType = [
@@ -410,15 +311,15 @@ export const teamCollaborationMembers = [
 //   });
 
 export const initDashboard = () => {
-    // if (!currentAccount) return;
+    if (!currentAccount) return;
 
-    // const dashboard = currentAccount.dashboard;
+    const dashboard = currentAccount.dashboard;
 
     const projectsContainer = document.querySelector(".projects-divs-container");
 
     let projectHTML = "";
 
-    projectsType.forEach((project) => {
+    dashboard.projectsType.forEach((project) => {
     projectHTML += `
             <div class="project-div">
                 <div class="project-type">
@@ -435,68 +336,10 @@ export const initDashboard = () => {
         `;
     });
     projectsContainer.innerHTML = projectHTML;
-  
-
-    const options = {
-        chart: {
-            type: "bar",
-            height: 200,
-            toolbar: { show: false },
-        },
-        series: [
-            {
-            data: [30, 50, 40, 70, 60, 45, 35],
-            },
-        ],
-        plotOptions: {
-            bar: {
-            columnWidth: "60%",
-            borderRadius: 10,
-            distributed: true,
-            },
-        },
-        fill: {
-            type: ["pattern", "solid"],
-            pattern: {
-            style: ["slantedLines"],
-            width: 4,
-            height: 6,
-            },
-        },
-        
-        grid: {
-            show: false,
-            padding: {
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            },
-        },
-        xaxis: {
-            categories: ["S", "M", "T", "W", "T", "F", "S"],
-            labels: { show: false },
-            axisBorder: { show: false },
-            axisTicks: { show: false },
-            crosshairs: { show: false },
-        },
-        yaxis: { show: false },
-        legend: { show: false },
-        dataLabels: { enabled: false },
-        colors: [
-            "#d1d5db",
-            "#16a34a",
-            "#86efac",
-            "#166534",
-            "#22c55e",
-            "#d1d5db",
-            "#d1d5db",
-        ],
-    };
-
+     
     const chart = new ApexCharts(
       document.querySelector("#projectAnalytics"),
-      options
+      dashboard.options
     );
     chart.render();
   
@@ -521,7 +364,7 @@ export const initDashboard = () => {
         });
         document.querySelector(".team-profile").innerHTML = membersCollaborationHTML;
     }
-    teamMemberCollaboration(teamCollaborationMembers); // Team member function
+    teamMemberCollaboration(dashboard.teamCollaborationMembers); // Team member function
   
     // Modal Add Member variables
     // TEAM MEMBER ADDER
@@ -586,10 +429,10 @@ export const initDashboard = () => {
         activeness: memberActiveness.value,
       };
   
-      teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
-      teamMemberCollaboration(teamCollaborationMembers); // Team member function
+      dashboard.teamCollaborationMembers.unshift(NEW_MEMBER_OBJECT);
+      teamMemberCollaboration(dashboard.teamCollaborationMembers); // Team member function
   
-      console.log(teamCollaborationMembers);
+      console.log(dashboard.teamCollaborationMembers);
     });
   
     // PROGRESS TRACKER BAR
@@ -597,7 +440,7 @@ export const initDashboard = () => {
     const ARC_LENGTH = 314;
     let progressNumberInput =
       previewContainer.querySelector(".percentage-number");
-    const progressNumber = 78;
+    const progressNumber = dashboard.userProjectProgress;
   
     progressNumberInput.textContent = `${progressNumber}%`;
   
@@ -611,7 +454,7 @@ export const initDashboard = () => {
 
     let stackProfileHTML = "";
   
-    projectStackType.forEach((stack) => {
+    dashboard.projectStackType.forEach((stack) => {
       stackProfileHTML += `
         <div class="project-types-and-date">
             <div class="project-type-icon">

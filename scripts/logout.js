@@ -1,3 +1,5 @@
+import { currentAccount, initLogin } from "./index.js";
+
 export const  logoutPageFullHTML = `
     <div class="logout-page">
 
@@ -16,9 +18,9 @@ export const  logoutPageFullHTML = `
         <p><strong>Signed in as:</strong></p>
         <div class="user-info">
             <img src="Pictures/avatar.png" alt="User Avatar">
-            <div>
-            <h4>Samuel Olalekan</h4>
-            <span>Frontend Developer</span>
+            <div class="current-account-details">
+            <h4 class="current-account-name">Samuel Olalekan</h4>
+            <span class="current-account-role">Frontend Developer</span>
             </div>
         </div>
         </div>
@@ -38,8 +40,18 @@ export const  logoutPageFullHTML = `
 `;
 
 export const initLogout = () => {
+    if (!currentAccount) return;
+
+
     const logoutBtn = document.querySelector('.btn-danger');
     const cancelBtn = document.querySelector('.btn-secondary');
+    const currentAccountName = document.querySelector('.current-account-name');
+    const currentAccountRole = document.querySelector('.current-account-role');
+
+    
+    currentAccountName.textContent = currentAccount.accountName;
+    currentAccountRole.textContent = currentAccount.role;
+
 
     logoutBtn.addEventListener('click', () => {
     // Clear frontend session data
@@ -47,7 +59,7 @@ export const initLogout = () => {
     sessionStorage.clear();
 
     // Redirect to login page
-    window.location.href = "login.html";
+    window.location.href = initLogin();
     });
 
     cancelBtn.addEventListener('click', () => {
