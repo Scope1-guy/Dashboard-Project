@@ -1,4 +1,4 @@
-import { account1, account2, account3, accounts, currentAccount} from "./index.js";
+import { currentAccount} from "./index.js";
 
 export const settingsPageFullHTML = `
     <div class="settings-page">
@@ -12,17 +12,17 @@ export const settingsPageFullHTML = `
 
         <div class="form-group">
         <label>Full Name</label>
-        <input type="text" placeholder="">
+        <input class="profile-change-full-name" type="text" placeholder="">
         </div>
 
         <div class="form-group">
         <label>Email</label>
-        <input type="email" placeholder="">
+        <input class="profile-change--email" type="email" placeholder="">
         </div>
 
         <div class="form-group">
         <label>Role</label>
-        <input type="text" placeholder="Frontend Developer" disabled>
+        <input class="profile--user--role" type="text" placeholder="" disabled>
         </div>
 
         <button class="primary-btn">Save Changes</button>
@@ -66,6 +66,14 @@ export const settingsPageFullHTML = `
 
 export const initSetting = () => {
   if (!currentAccount) return;
+
+  const profileChangeName = document.querySelector(".profile-change-full-name");
+  const profileChangeEmail = document.querySelector(".profile-change--email");
+  const profileRole = document.querySelector(".profile--user--role")
+
+  profileChangeName.placeholder = `${currentAccount.accountName}`;
+  profileChangeEmail.placeholder = `${currentAccount.email}`;
+  profileRole.placeholder = `${currentAccount.role}`;
 
 
     const darkToggle = document.getElementById('darkModeToggle');
