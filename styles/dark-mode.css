@@ -277,3 +277,75 @@ body.dark .team-member-adder-popUp {
 body.dark .team-member-adder-popUp::backdrop {
   background: rgba(0, 0, 0, 0.7);
 }
+
+
+/* ========== AUTH PAGE DARK MODE ========== */
+
+body.dark .auth-page {
+  background-color: #0b1220;
+  border: 2px solid #1f2937;
+}
+
+/* Card */
+body.dark .auth-card {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+/* Header text */
+body.dark .auth-header h2 {
+  color: #f9fafb;
+}
+
+body.dark .auth-header p {
+  color: #9ca3af;
+}
+
+/* Labels */
+body.dark .form-group label {
+  color: #d1d5db;
+}
+
+/* Inputs */
+body.dark .form-group input {
+  background-color: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
+body.dark .form-group input::placeholder {
+  color: #6b7280;
+}
+
+body.dark .form-group input:focus {
+  border-color: #6366f1;
+}
+
+/* Form options */
+body.dark .form-options {
+  color: #d1d5db;
+}
+
+/* Forgot password link */
+body.dark .forgot-password {
+  color: #818cf8;
+}
+
+/* Login button */
+body.dark .login-btn {
+  background: #6366f1;
+}
+
+body.dark .login-btn:hover {
+  background: #4f46e5;
+}
+
+/* Footer */
+body.dark .auth-footer {
+  color: #9ca3af;
+}
+
+body.dark .auth-footer a {
+  color: #818cf8;
+}
