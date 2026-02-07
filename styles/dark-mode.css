@@ -416,3 +416,90 @@ body.dark .btn-danger:hover {
 body.dark .security-note {
   color: #9ca3af;
 }
+
+
+/* ========== SETTINGS PAGE DARK MODE ========== */
+
+body.dark .settings-page {
+  color: #e5e7eb;
+}
+
+/* Page title & subtitle */
+body.dark .page-title {
+  color: #f9fafb;
+}
+
+body.dark .page-subtitle {
+  color: #9ca3af;
+}
+
+/* Cards */
+body.dark .settings-card {
+  background: #111827;
+  border: 1px solid #1f2937;
+}
+
+/* Card headings */
+body.dark .settings-card h3 {
+  color: #f9fafb;
+}
+
+/* Form labels */
+body.dark .form-group label {
+  color: #d1d5db;
+}
+
+/* Inputs */
+body.dark .form-group input {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+  color: #e5e7eb;
+}
+
+body.dark .form-group input::placeholder {
+  color: #6b7280;
+}
+
+body.dark .form-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* Toggle rows text */
+body.dark .toggle-row {
+  color: #e5e7eb;
+}
+
+/* Primary button */
+body.dark .primary-btn {
+  background: #2563eb;
+}
+
+body.dark .primary-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Secondary button */
+body.dark .secondary-btn {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+body.dark .secondary-btn:hover {
+  background: #374151;
+}
+
+/* Danger section */
+body.dark .danger {
+  border: 1px solid #7f1d1d;
+  background: #0f172a;
+}
+
+/* Danger button */
+body.dark .danger-btn {
+  background: #dc2626;
+}
+
+body.dark .danger-btn:hover {
+  background: #b91c1c;
+}
