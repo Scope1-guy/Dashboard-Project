@@ -67,3 +67,74 @@
   border-bottom: 1px solid #374151;
   color: #e5e7eb;
 }
+
+
+/* ========== DARK MODE : HELP PAGE ========== */
+
+.dark .help-page {
+  color: #e5e7eb;
+}
+
+/* Header */
+.dark .help-header h2 {
+  color: #f9fafb;
+}
+
+.dark .help-header p {
+  color: #9ca3af;
+}
+
+/* Search input */
+.dark .help-search {
+  background: #111827;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
+.dark .help-search::placeholder {
+  color: #6b7280;
+}
+
+/* Help cards */
+.dark .help-card {
+  background: #111827;
+}
+
+.dark .help-card h4 {
+  color: #f9fafb;
+}
+
+.dark .help-card p {
+  color: #9ca3af;
+}
+
+.dark .help-card span {
+  color: #60a5fa;
+}
+
+/* FAQ section */
+.dark .faq-section h3 {
+  color: #f9fafb;
+}
+
+.dark .faq-item {
+  border-bottom: 1px solid #374151;
+}
+
+.dark .faq-question {
+  color: #e5e7eb;
+}
+
+.dark .faq-question:hover {
+  background: #1f2933;
+}
+
+.dark .faq-answer {
+  color: #9ca3af;
+}
+
+/* Support section */
+.dark .support-section {
+  background: #0f172a;
+  color: #e5e7eb;
+}
