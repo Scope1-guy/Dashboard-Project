@@ -138,3 +138,142 @@
   background: #0f172a;
   color: #e5e7eb;
 }
+
+
+/* ========== DARK MODE BASE ========== */
+
+body.dark {
+  background-color: #0b1220;
+  color: #e5e7eb;
+}
+
+/* Page body */
+body.dark .page-body {
+  background-color: transparent;
+}
+
+/* Sidebar */
+body.dark .sidebar {
+  background-color: #0f172a;
+}
+
+body.dark .sidebar-sublists li {
+  color: #d1d5db;
+}
+
+body.dark .sidebar-sublists li:hover {
+  border-bottom: 4px solid #22c55e;
+}
+
+/* Header */
+body.dark .mp-header {
+  background-color: #0f172a;
+}
+
+body.dark .search-input {
+  background-color: #111827;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
+body.dark .search-input::placeholder {
+  color: #6b7280;
+}
+
+body.dark .mp-icons {
+  background-color: #111827;
+}
+
+/* Dashboard wrapper */
+body.dark .dashboard-page {
+  background-color: #0f172a;
+}
+
+/* Cards (generic white → dark surface) */
+body.dark .project-div,
+body.dark .meeting-remainder-container,
+body.dark .analytics-container,
+body.dark .team-collab,
+body.dark .progress-checker-container,
+body.dark .project-stack-tracker {
+  background-color: #111827;
+}
+
+/* First project card stays special */
+body.dark .project-div:first-of-type {
+  background: linear-gradient(170deg, #14532d, #22c55e);
+  color: #ecfdf5;
+}
+
+/* Project arrow */
+body.dark .project-arrow {
+  background-color: #1f2937;
+}
+
+/* Analytics text */
+body.dark .analytics-container h3,
+body.dark .tc-header h5,
+body.dark .progress-checker-container h3,
+body.dark .ptt-header h3 {
+  color: #f9fafb;
+}
+
+/* Meeting reminder */
+body.dark .mrc-text {
+  color: #22c55e;
+}
+
+/* Buttons */
+body.dark .add-task-btn,
+body.dark .mrc-button {
+  background: linear-gradient(170deg, #14532d, #22c55e);
+}
+
+body.dark .import-task-btn {
+  background-color: transparent;
+  color: #e5e7eb;
+  border: 2px solid #22c55e;
+}
+
+/* Team section */
+body.dark .team-member-adder-btn {
+  background-color: transparent;
+  color: #22c55e;
+  border: 2px solid #22c55e;
+}
+
+body.dark .team-member-dp {
+  background-color: #111827;
+  border: 1px solid #374151;
+}
+
+body.dark .team-member-info h5,
+body.dark .team-member-info-role p {
+  color: #d1d5db;
+}
+
+/* Progress checker */
+body.dark .checker-color-box {
+  background-color: #22c55e;
+}
+
+/* Project stack tracker */
+body.dark .project-type-icon {
+  border: 1px solid #374151;
+}
+
+/* Time tracker (already green, just deepen it) */
+body.dark .project-time-tracker {
+  background: linear-gradient(170deg, #14532d, #22c55e);
+  color: #ecfdf5;
+}
+
+/* Dialog / modal */
+body.dark .team-member-adder-popUp {
+  background-color: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark .team-member-adder-popUp::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+}
