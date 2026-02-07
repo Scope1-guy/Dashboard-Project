@@ -269,33 +269,33 @@ export const teamCollaborationMembers = [
 ];
   
   // PROJECT STACK TYPE FUNCTIONALITY
-  const projectStackType = [
-    {
-      stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
-      stackName: "Develop API Endpoints",
-      dueDate: "Nov 26, 2004",
-    },
-    {
-      stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
-      stackName: "Onboarding Flow",
-      dueDate: "Nov 26, 2004",
-    },
-    {
-      stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
-      stackName: "Build Dashboard",
-      dueDate: "Nov 26, 2004",
-    },
-    {
-      stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
-      stackName: "Optimize Page Load",
-      dueDate: "Nov 26, 2004",
-    },
-    {
-      stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
-      stackName: "Cross-Browser Testing",
-      dueDate: "Nov 26, 2004",
-    },
-  ];
+//   const projectStackType = [
+//     {
+//       stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+//       stackName: "Develop API Endpoints",
+//       dueDate: "Nov 26, 2004",
+//     },
+//     {
+//       stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+//       stackName: "Onboarding Flow",
+//       dueDate: "Nov 26, 2004",
+//     },
+//     {
+//       stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+//       stackName: "Build Dashboard",
+//       dueDate: "Nov 26, 2004",
+//     },
+//     {
+//       stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+//       stackName: "Optimize Page Load",
+//       dueDate: "Nov 26, 2004",
+//     },
+//     {
+//       stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+//       stackName: "Cross-Browser Testing",
+//       dueDate: "Nov 26, 2004",
+//     },
+//   ];
   
 //   let stackProfileHTML = "";
   
@@ -494,7 +494,5 @@ export const initDashboard = () => {
     });
     document.querySelector(".list-of-project-works").innerHTML = stackProfileHTML;
 
-    startSessionTimer()
+    startSessionTimer();
   };
-
-  

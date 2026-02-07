@@ -24,7 +24,7 @@ const logoutLI = document.querySelector(".logout-li");
 
 export const account1 = {
   email: "the.guyyy1203@gmail.com",
-  userPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+  userPicture: "user profile pictures/undraw_male-avatar_zkzx.png",
   password: "Ayanfe1211@",
   accountName: "Samuel Olalekan",
   role: "Frontend Developer",
@@ -166,27 +166,27 @@ export const account1 = {
     ],
     projectStackType: [
       {
-        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackImage: "Pictures/stacks icons/istockphoto-1330147576-612x612.jpg",
         stackName: "Develop API Endpoints",
         dueDate: "Nov 26, 2004",
       },
       {
-        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackImage: "Pictures/stacks icons/speedo-meter-logo-vector-illustration-600nw-2688888335.jpg",
         stackName: "Onboarding Flow",
         dueDate: "Nov 26, 2004",
       },
       {
-        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackImage: "Pictures/stacks icons/images.png",
         stackName: "Build Dashboard",
         dueDate: "Nov 26, 2004",
       },
       {
-        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackImage: "Pictures/stacks icons/images (3).jpeg",
         stackName: "Optimize Page Load",
         dueDate: "Nov 26, 2004",
       },
       {
-        stackImage: "Pictures/icons/—Pngtree—vector notification icon_4187244.png",
+        stackImage: "Pictures/stacks icons/images (4).jpeg",
         stackName: "Cross-Browser Testing",
         dueDate: "Nov 26, 2004",
       },
@@ -268,7 +268,7 @@ export const account1 = {
 };
 export const account2 = {
   email: "ogunbanwosaheedeniola74@gmail.com",
-  userPicture: "Pictures/icons/—Pngtree—vector message icon_3996265.png",
+  userPicture: "user profile pictures/undraw_male-avatar_zkzx.png",
   password: "Scope0932#",
   accountName: "Saheed Ogunbanwo",
   role: "Data Analytics",

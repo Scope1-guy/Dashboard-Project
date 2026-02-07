@@ -17,7 +17,7 @@ export const  logoutPageFullHTML = `
         <div class="user-session">
         <p><strong>Signed in as:</strong></p>
         <div class="user-info">
-            <img src="Pictures/avatar.png" alt="User Avatar">
+            <img class="user-info-image" src="Pictures/avatar.png" alt="User Avatar">
             <div class="current-account-details">
             <h4 class="current-account-name">Samuel Olalekan</h4>
             <span class="current-account-role">Frontend Developer</span>
@@ -45,18 +45,19 @@ export const initLogout = () => {
 
     const logoutBtn = document.querySelector('.btn-danger');
     const cancelBtn = document.querySelector('.btn-secondary');
+    const currentAccountImage = document.querySelector('.user-info-image');
     const currentAccountName = document.querySelector('.current-account-name');
     const currentAccountRole = document.querySelector('.current-account-role');
 
-    
+    currentAccountImage.src = currentAccount.userPicture;
     currentAccountName.textContent = currentAccount.accountName;
     currentAccountRole.textContent = currentAccount.role;
 
 
     logoutBtn.addEventListener('click', () => {
     // Clear frontend session data
-    localStorage.clear();
-    sessionStorage.clear();
+    // localStorage.clear();
+    // sessionStorage.clear();
 
     // Redirect to login page
     window.location.href = initLogin();

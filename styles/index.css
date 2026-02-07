@@ -70,7 +70,7 @@ body{
     gap: 10px;
     align-items: center;
 }
-.mp-icons{
+.mp-icons, .project-type-icon{
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -78,7 +78,7 @@ body{
     border: none;
     background-color: white;
 }
-.mp-icons img{
+.mp-icons img, .project-type-icon img{
     width: 100%;
 }
 .mp-user-info h3, .mp-user-info p{
@@ -407,16 +407,6 @@ body{
     font-size: 15px;
     margin-top: 4px;
 }
-.project-type-icon{
-    width: 35px;
-    height: 35px;
-    border-radius: 50px;
-    border: 1px solid black;
-}
-.project-type-icon img{
-    width: 100%;
-}
-
 .list-of-project-works{
     margin-top: 20px;
 }

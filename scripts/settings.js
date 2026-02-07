@@ -105,7 +105,7 @@ export const initSetting = () => {
     const darkToggle = document.getElementById('darkModeToggle');
 
     darkToggle.addEventListener('change', () => {
-    document.body.classList.toggle('dark-mode', darkToggle.checked);
+    document.body.classList.toggle('dark', darkToggle.checked);
     });
 
     document.querySelector('.danger-btn').addEventListener('click', () => {
