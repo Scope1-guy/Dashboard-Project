@@ -603,3 +603,62 @@ body.dark .priority.low {
 body.dark .avatars img {
   border: 2px solid #111827;
 }
+
+/* ========== TEAM PAGE DARK MODE ========== */
+
+body.dark .team-page {
+  color: #e5e7eb;
+}
+
+/* Header button */
+body.dark .add-member-btn {
+  background: #16a34a;
+}
+
+/* Grid cards */
+body.dark .card {
+  background: #111827;
+  border: 1px solid #1f2937;
+}
+
+/* Team member list card */
+body.dark .team-member-card {
+  background: #0f172a;
+  border: 1px solid #1f2937;
+}
+
+/* Member info */
+body.dark .member-info h4 {
+  color: #f9fafb;
+}
+
+body.dark .member-info p {
+  color: #9ca3af;
+}
+
+/* Member status */
+body.dark .member-status.active {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+body.dark .member-status.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+/* Team summary */
+body.dark .team-summary {
+  color: #e5e7eb;
+}
+
+body.dark .summary-item {
+  border-bottom: 1px solid #1f2937;
+  padding-bottom: 6px;
+}
+
+/* Role pill */
+body.dark .role-pill {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
