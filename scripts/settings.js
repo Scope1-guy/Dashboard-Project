@@ -1,4 +1,4 @@
-import { currentAccount} from "./index.js";
+import { currentAccount,pageAccountName, pageAccountEmail } from "./index.js";
 
 export const settingsPageFullHTML = `
     <div class="settings-page">
@@ -57,24 +57,50 @@ export const settingsPageFullHTML = `
 
     <!-- DANGER ZONE -->
     <section class="settings-card danger">
-        <h3>Danger Zone</h3>
-        <button class="danger-btn">Logout</button>
+        <h3>Delete Account</h3>
+        <button class="danger-btn">Delete</button>
     </section>
 
     </div>
 `;
 
 export const initSetting = () => {
-  if (!currentAccount) return;
+    if (!currentAccount) return;
 
-  const profileChangeName = document.querySelector(".profile-change-full-name");
-  const profileChangeEmail = document.querySelector(".profile-change--email");
-  const profileRole = document.querySelector(".profile--user--role")
+    const profileChangeName = document.querySelector(".profile-change-full-name");
+    const profileChangeEmail = document.querySelector(".profile-change--email");
+    const profileRole = document.querySelector(".profile--user--role");
+    const saveProfileChanges = document.querySelector('.primary-btn');
 
-  profileChangeName.placeholder = `${currentAccount.accountName}`;
-  profileChangeEmail.placeholder = `${currentAccount.email}`;
-  profileRole.placeholder = `${currentAccount.role}`;
+    const updateAccountProfile = () => {
+        const name = profileChangeName.value.trim();
+        const email = profileChangeEmail.value.trim();
 
+        if (!name || !email) {
+            console.warn("Profile update failed: missing fields");
+            return;
+        }
+
+        currentAccount.accountName = name;
+        currentAccount.email = email;
+
+        syncProfileUI();
+        logProfileUpdate();
+    }
+
+    const syncProfileUI = () => {
+        pageAccountName.textContent = currentAccount.accountName;
+        pageAccountEmail.textContent = currentAccount.email;
+    }
+    const logProfileUpdate = () => {
+        console.log("Account Name and Email changed successfully");
+    }
+
+    saveProfileChanges.addEventListener('click', updateAccountProfile);
+
+    profileChangeName.placeholder = `${currentAccount.accountName}`;
+    profileChangeEmail.placeholder = `${currentAccount.email}`;
+    profileRole.placeholder = `${currentAccount.role}`;
 
     const darkToggle = document.getElementById('darkModeToggle');
 

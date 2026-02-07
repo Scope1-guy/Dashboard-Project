@@ -9,8 +9,8 @@ import { logoutPageFullHTML, initLogout } from "./logout.js";
 
 const loginPageVariable = document.querySelector(".login-page-body");
 const pageBody = document.querySelector('.page-body');
-const pageAccountName = document.querySelector('.mp-user-name');
-const pageAccountEmail = document.querySelector('.mp-user-email');
+export const pageAccountName = document.querySelector('.mp-user-name');
+export const pageAccountEmail = document.querySelector('.mp-user-email');
 const dashboardLI = document.querySelector(".dashboard-li");
 const taskLI = document.querySelector(".task-li");
 const calendarLI = document.querySelector(".calendar-li");
@@ -259,7 +259,12 @@ export const account1 = {
     }]
   },
   teamPage: {},
-  analytics: {}
+  analytics: {},
+  timeTracking: {
+    loginAt: null,
+    totalSeconds: 0,
+    isRunning: false
+  }
 };
 export const account2 = {
   email: "ogunbanwosaheedeniola74@gmail.com",
@@ -735,6 +740,8 @@ export const initLogin = () => {
 
   renderPages(dashBoardPageFullHTML); // Initial Page.
   initDashboard();
+  currentAccount.timeTracking.loginAt = Date.now();
+  currentAccount.timeTracking.isRunning = true;
   });
 }
 initLogin();

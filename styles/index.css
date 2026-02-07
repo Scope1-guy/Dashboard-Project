@@ -423,12 +423,23 @@ body{
 
 .project-time-tracker{
     padding: 15px 12px;
-    background-color: white;
+    background: linear-gradient(170deg, rgb(0, 78, 0), rgb(0, 122, 0));
     border-radius: 20px;
     margin-top: 10px;
+    color: white;
 }
 .tracker-timer-counting{
     font-size: 30px;
     justify-self: center;
-    margin: 29px;
+    margin: 20px
+}
+.pause-play-timer-div{
+    justify-self: center;
+}
+.pause-play-timer-div button{
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
 }

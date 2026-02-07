@@ -182,10 +182,13 @@ export const dashBoardPageFullHTML = `
         <div class="project-time-tracker">
             <h3>Time Tracker</h3>
 
-            <p class="tracker-timer-counting">01:24:08</p>
+            <p class="tracker-timer-counting">00:00:00</p>
 
-            <button class="pause-and-play-btn">PLAY</button>
-            <button class="stop-btn"> STOP</button>
+
+            <div class="pause-play-timer-div">
+                <button class="pause-and-play-btn">Record Screen</button>
+                <button class="stop-btn">Stop Recording</button>
+            </div>
         </div>
 
     </div>
@@ -309,6 +312,28 @@ export const teamCollaborationMembers = [
 //       </div>
 //       `;
 //   });
+
+const startSessionTimer = () => {
+    const timerText = document.querySelector(".tracker-timer-counting");
+
+    setInterval(() => {
+        if (!currentAccount?.timeTracking?.isRunning)
+            return;
+
+        const tracker = currentAccount.timeTracking;
+        const seconds = tracker.totalSeconds + Math.floor((Date.now() - tracker.loginAt) / 1000);
+
+        timerText.textContent = formatTime(seconds);
+    }, 1000);
+}
+
+const formatTime = (seconds) => {
+    const h = String(Math.floor(seconds / 3600)).padStart(2, "0");
+    const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
+    const s = String(seconds % 60).padStart(2, "0");
+
+    return `${h}:${m}:${s}`;
+}
 
 export const initDashboard = () => {
     if (!currentAccount) return;
@@ -468,6 +493,8 @@ export const initDashboard = () => {
         `;
     });
     document.querySelector(".list-of-project-works").innerHTML = stackProfileHTML;
+
+    startSessionTimer()
   };
 
   
