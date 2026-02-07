@@ -4,3 +4,66 @@
 .dark-mode.logo-name{
     color: ;
 }
+/* ========== DARK MODE : ANALYTICS PAGE ========== */
+
+.dark .analytics-page {
+  color: #e5e7eb;
+}
+
+.dark .analytics-header h2 {
+  color: #f9fafb;
+}
+
+.dark .analytics-actions select {
+  background: #111827;
+  color: #e5e7eb;
+  border: 1px solid #374151;
+}
+
+/* Stats cards */
+.dark .stat-card {
+  background: #111827;
+  color: #e5e7eb;
+}
+
+.dark .stat-card span {
+  color: #9ca3af;
+}
+
+/* Highlighted stat card */
+.dark .stat-card:first-of-type {
+  background: #14532d;
+  color: #ecfdf5;
+}
+
+.dark .stat-card:first-of-type span {
+  color: #86efac;
+}
+
+/* Main cards */
+.dark .card {
+  background: #111827;
+}
+
+/* Chart cards */
+.dark .chart-card {
+  background: #111827;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.dark .chart-card h3 {
+  color: #f9fafb;
+}
+
+/* Score section */
+.dark .score-circle {
+  background: #22c55e;
+  color: #052e16;
+}
+
+/* Table */
+.dark .analytics-table th,
+.dark .analytics-table td {
+  border-bottom: 1px solid #374151;
+  color: #e5e7eb;
+}
