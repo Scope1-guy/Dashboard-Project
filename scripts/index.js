@@ -261,8 +261,8 @@ export const account1 = {
   teamPage: {},
   analytics: {},
   timeTracking: {
-    loginAt: null,
-    totalSeconds: 0,
+    timerId: null,
+    totalSeconds: 300,
     isRunning: false
   }
 };
@@ -481,7 +481,12 @@ export const account2 = {
     }]
   },
   teamPage: {},
-  analytics: {}
+  analytics: {},
+  timeTracking: {
+    timerId: null,
+    totalSeconds: 300,
+    isRunning: false
+  }
 };
 export const account3 = {
   email: "scope9750@gmail.com",
@@ -693,7 +698,12 @@ export const account3 = {
     }]
   },
   teamPage: {},
-  analytics: {}
+  analytics: {},
+  timeTracking: {
+    timerId: null,
+    totalSeconds: 300,
+    isRunning: false
+  }
 };
 
 export const accounts = [account1, account2, account3]
@@ -747,6 +757,10 @@ export const initLogin = () => {
 initLogin();
 
 console.log("Login Successful", currentAccount);
+
+
+// COUNTDOWN
+
 
 
 // RENDERING OF THE DASHBOARD

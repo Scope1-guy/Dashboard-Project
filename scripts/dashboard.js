@@ -182,7 +182,7 @@ export const dashBoardPageFullHTML = `
         <div class="project-time-tracker">
             <h3>Time Tracker</h3>
 
-            <p class="tracker-timer-counting">00:00:00</p>
+            <p class="tracker-timer-counting"></p>
 
 
             <div class="pause-play-timer-div">
@@ -314,17 +314,32 @@ export const teamCollaborationMembers = [
 //   });
 
 const startSessionTimer = () => {
+    if (!currentAccount) return;
+
     const timerText = document.querySelector(".tracker-timer-counting");
 
-    setInterval(() => {
-        if (!currentAccount?.timeTracking?.isRunning)
-            return;
+    let time = currentAccount.timeTracking.totalSeconds;
 
-        const tracker = currentAccount.timeTracking;
-        const seconds = tracker.totalSeconds + Math.floor((Date.now() - tracker.loginAt) / 1000);
+    function UiUpdate () {
+        const minutes = String(Math.floor(time / 60)).padStart(2, "0");
+        const seconds = String(time % 60).padStart(2, "0");
 
-        timerText.textContent = formatTime(seconds);
-    }, 1000);
+        timerText.textContent = `${minutes}: ${seconds}`;
+    }
+
+    UiUpdate();
+
+    currentAccount.timeTracking.timerId = setInterval(() => {
+        time--;
+
+        currentAccount.timeTracking.totalSeconds = time;
+
+        UiUpdate();
+
+        if (time <= 0) {
+            clearInterval(currentAccount.timeTracking.timerId);
+        }
+    })
 }
 
 const formatTime = (seconds) => {
