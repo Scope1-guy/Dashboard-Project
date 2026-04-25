@@ -714,44 +714,53 @@ export const initLogin = () => {
   const loginForm = document.querySelector('.login-form');
 
   loginForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  const email = document.querySelector('.email-input').value;
-  const password = document.querySelector('.password-input').value;
-  const userPicture = document.querySelector('.currentAccount-picture')
-  
-  if (!email || !password) {
-      alert("Please fill in all fields");
-      return;
-  }
+    if (!navigator.onLine) {
+      e.preventDefault();
 
-  currentAccount = accounts.find(acc => acc.email === email);
+      alert('No Internet connection');
+    } else {
 
-  if (!currentAccount) {
-    alert("Account not found");
-    return;
-  }
+      e.preventDefault();
+      
+      const email = document.querySelector('.email-input').value;
+      const password = document.querySelector('.password-input').value;
+      const userPicture = document.querySelector('.currentAccount-picture')
+      
+      if (!email || !password) {
+          alert("Please fill in all fields");
+          return;
+      }
 
-  if (currentAccount?.password !== password) {
-    alert("incorrect password");
-    return;
-  }
+      currentAccount = accounts.find(acc => acc.email === email);
 
-  
-  // Temporary frontend session (for now)
-  localStorage.setItem("isLoggedIn", true);
-  localStorage.setItem("userEmail", currentAccount.email);
+      if (!currentAccount) {
+        alert("Account not found");
+        return;
+      }
 
-  loginPageVariable.style.display = "none";
-  pageBody.style.display = "flex";
-  pageAccountName.textContent = currentAccount.accountName;
-  pageAccountEmail.textContent = currentAccount.email;
-  userPicture.src = currentAccount.userPicture;
+      if (currentAccount?.password !== password) {
+        alert("incorrect password");
+        return;
+      }
 
-  renderPages(dashBoardPageFullHTML); // Initial Page.
-  initDashboard();
-  currentAccount.timeTracking.loginAt = Date.now();
-  currentAccount.timeTracking.isRunning = true;
+      
+
+      
+      // Temporary frontend session (for now)
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("userEmail", currentAccount.email);
+
+      loginPageVariable.style.display = "none";
+      pageBody.style.display = "flex";
+      pageAccountName.textContent = currentAccount.accountName;
+      pageAccountEmail.textContent = currentAccount.email;
+      userPicture.src = currentAccount.userPicture;
+
+      renderPages(dashBoardPageFullHTML); // Initial Page.
+      initDashboard();
+      currentAccount.timeTracking.loginAt = Date.now();
+      currentAccount.timeTracking.isRunning = true;
+    }
   });
 }
 initLogin();
